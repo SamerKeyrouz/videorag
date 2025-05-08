@@ -1,0 +1,2592 @@
+[
+  {
+    "start": 0.0,
+    "end": 8.16,
+    "text": "So hello everyone, welcome to the PC Seminar. Today we have this professor Amir Mohad from"
+  },
+  {
+    "start": 8.16,
+    "end": 13.02,
+    "text": "American University of Beirut and he'll be talking on the GERT and Parametri's complex"
+  },
+  {
+    "start": 13.02,
+    "end": 17.76,
+    "text": "at your token sliding and token jumping. Thank you for joining us professor, over to"
+  },
+  {
+    "start": 17.76,
+    "end": 26.04,
+    "text": "you now. Thank you, Prasiva. Thank you for having me. It's a real pleasure to be here."
+  },
+  {
+    "start": 26.04,
+    "end": 32.2,
+    "text": "So all right, let's jump right into it. So since I did not really know the audience"
+  },
+  {
+    "start": 32.2,
+    "end": 40.0,
+    "text": "too well, I made the assumption that many of you maybe have not seen this area of combinatorial"
+  },
+  {
+    "start": 40.0,
+    "end": 45.879999999999995,
+    "text": "reconfiguration problems. So I decided what I'm going to do is I'm going to give a gentle"
+  },
+  {
+    "start": 45.879999999999995,
+    "end": 51.480000000000004,
+    "text": "introduction to the area just to show you how many exciting problems and open problems"
+  },
+  {
+    "start": 51.48,
+    "end": 58.279999999999994,
+    "text": "are there. And then I will talk more about token jumping and token sliding, specifically"
+  },
+  {
+    "start": 58.279999999999994,
+    "end": 63.239999999999995,
+    "text": "what we know about them, what we knew about them before we started working on this project,"
+  },
+  {
+    "start": 63.959999999999994,
+    "end": 69.32,
+    "text": "what we managed to discover and the tons of questions that remain to be answered."
+  },
+  {
+    "start": 70.12,
+    "end": 77.24,
+    "text": "Right, and it's a really, I mean the questions are so nice to state, so easy to state, and they"
+  },
+  {
+    "start": 77.39999999999999,
+    "end": 84.19999999999999,
+    "text": "are accessible really to researchers at any level, which is one of the reasons why I enjoy working"
+  },
+  {
+    "start": 84.19999999999999,
+    "end": 92.11999999999999,
+    "text": "on these problems. So hopefully you'll get to enjoy them too. So before I start, I should point"
+  },
+  {
+    "start": 92.11999999999999,
+    "end": 98.44,
+    "text": "out that this is joint work that started back in the combinatorial reconfiguration workshop"
+  },
+  {
+    "start": 99.47999999999999,
+    "end": 106.36,
+    "text": "almost two years ago. And it's joint work with Valentine Barce, Nicolabusche, Le Mandalard,"
+  },
+  {
+    "start": 106.36,
+    "end": 116.36,
+    "text": "and Karl Lomar, who is my master's student. All right, so the outline of the talk, it's going"
+  },
+  {
+    "start": 116.36,
+    "end": 122.28,
+    "text": "to be in four sections. I will give a gentle introduction to combinatorial reconfiguration,"
+  },
+  {
+    "start": 122.28,
+    "end": 131.07999999999998,
+    "text": "because I know many of you might not have seen such problems. Then I will talk about token jumping"
+  },
+  {
+    "start": 131.08,
+    "end": 136.76000000000002,
+    "text": "and token sliding, what we know about them in terms of classical complexity or one dimensional"
+  },
+  {
+    "start": 136.76000000000002,
+    "end": 143.08,
+    "text": "complexity. Then I'll talk about the paramjazz complexity of these two problems and what we know"
+  },
+  {
+    "start": 143.08,
+    "end": 150.12,
+    "text": "as of today, as we speak. And what are the problems that remain to be solved? And then the last part"
+  },
+  {
+    "start": 150.12,
+    "end": 154.68,
+    "text": "of the lecture is where I will put some of the technical stuff to show you to give you an idea"
+  },
+  {
+    "start": 155.48000000000002,
+    "end": 160.60000000000002,
+    "text": "about how we prove things when we deal with such problems and where are the difficulties"
+  },
+  {
+    "start": 160.6,
+    "end": 166.68,
+    "text": "and what kind of techniques have been developed. So I tried to keep the technical part as light as"
+  },
+  {
+    "start": 166.68,
+    "end": 174.92,
+    "text": "I could so that really, I mean, I can focus on the big picture and the questions to be asked"
+  },
+  {
+    "start": 174.92,
+    "end": 180.2,
+    "text": "and answered. So if you have any questions along the way, please feel free to interrupt me either"
+  },
+  {
+    "start": 180.2,
+    "end": 188.44,
+    "text": "in the chat or by unmuting yourselves. So don't worry about leaving the questions till the end,"
+  },
+  {
+    "start": 188.44,
+    "end": 192.04,
+    "text": "you can interrupt me whenever you feel whenever I say something that doesn't make sense."
+  },
+  {
+    "start": 193.07999999999998,
+    "end": 200.76,
+    "text": "Hopefully that won't happen too often. All right, so what is combinatorial configuration? So the best"
+  },
+  {
+    "start": 200.76,
+    "end": 208.44,
+    "text": "way I think to introduce is with a familiar example, which is one player games and the most common one"
+  },
+  {
+    "start": 208.44,
+    "end": 214.04,
+    "text": "that we use is the 15 puzzle game. So for those of you who don't know the 15 puzzle game, so you're"
+  },
+  {
+    "start": 214.12,
+    "end": 222.6,
+    "text": "given like a 4x4 grid and you have one empty square and basically you have all the remaining 15"
+  },
+  {
+    "start": 222.6,
+    "end": 229.48,
+    "text": "squares are numbered from 1 to 15 and they come in some ordering and your job is to basically move"
+  },
+  {
+    "start": 229.48,
+    "end": 235.88,
+    "text": "the squares around so that all the numbers become ordered. So it's a vital. So they have to be"
+  },
+  {
+    "start": 235.88,
+    "end": 242.28,
+    "text": "ordered this way. So if you notice in this figure, the only problem is that 14 and 15 are reversed."
+  },
+  {
+    "start": 243.08,
+    "end": 249.72,
+    "text": "But the only moves that you're allowed to do is to basically move a number into the empty square."
+  },
+  {
+    "start": 251.48,
+    "end": 256.84,
+    "text": "And basically you have to do a sequence of moves so that you get all of the numbers in order."
+  },
+  {
+    "start": 257.64,
+    "end": 263.4,
+    "text": "And for those of you who know this game, this example that I have on the slide is actually"
+  },
+  {
+    "start": 264.35999999999996,
+    "end": 271.08,
+    "text": "unsolved. There is no way you can flip the order of 14 and 15 in this puzzle."
+  },
+  {
+    "start": 271.71999999999997,
+    "end": 275.88,
+    "text": "And I have a link here if you want to actually play the puzzle online, which is pretty fun."
+  },
+  {
+    "start": 277.32,
+    "end": 284.2,
+    "text": "So why do I start my talk by talking about 15 puzzle? It's because it's really, I mean, the way"
+  },
+  {
+    "start": 284.2,
+    "end": 291.15999999999997,
+    "text": "you solve the 15 puzzle tells you a lot about the area of combinatorial configuration. So the standard"
+  },
+  {
+    "start": 292.12,
+    "end": 298.20000000000005,
+    "text": "way we would think about the 15 puzzle is by looking at the state space or what we call the"
+  },
+  {
+    "start": 298.20000000000005,
+    "end": 305.8,
+    "text": "reconfiguration graph of the 15 puzzle. So what does that graph consist of? Well, we have one vertex"
+  },
+  {
+    "start": 305.8,
+    "end": 312.76000000000005,
+    "text": "or one node in this graph for each possible configuration of the puzzle. So basically each"
+  },
+  {
+    "start": 312.76000000000005,
+    "end": 318.6,
+    "text": "possible configuration, so it would be a possible permutation of the 15 numbers. In addition to where"
+  },
+  {
+    "start": 318.6,
+    "end": 323.72,
+    "text": "you're going to put the empty square, each one of those will be a vertex and the graph."
+  },
+  {
+    "start": 324.92,
+    "end": 331.40000000000003,
+    "text": "And now we connect two vertices in that graph whenever one can be reached from the other by a"
+  },
+  {
+    "start": 331.40000000000003,
+    "end": 336.52000000000004,
+    "text": "single move. And what do we mean here by a single move where it's basically just moving"
+  },
+  {
+    "start": 337.88,
+    "end": 344.04,
+    "text": "number into the empty square. So if you look at the top node here in this graph, there are four"
+  },
+  {
+    "start": 344.04,
+    "end": 349.64000000000004,
+    "text": "possibilities that you can do in one move, which we call a reconfiguration step, which is you can"
+  },
+  {
+    "start": 349.64000000000004,
+    "end": 357.48,
+    "text": "move nine into the empty square, you can move three into the empty square, 12 or 15. And that gives us"
+  },
+  {
+    "start": 357.48,
+    "end": 364.28000000000003,
+    "text": "basically four neighbors of that vertex in the graph. Okay, and we call this whole graph, the"
+  },
+  {
+    "start": 364.28000000000003,
+    "end": 369.40000000000003,
+    "text": "reconfiguration graph or the state space, if you're more comfortable thinking about states, the"
+  },
+  {
+    "start": 369.4,
+    "end": 377.4,
+    "text": "states of the game. So now given this graph, the reconfiguration graph, there are tons of very"
+  },
+  {
+    "start": 377.4,
+    "end": 382.28,
+    "text": "interesting questions that you can ask about it. There are structural questions and there are"
+  },
+  {
+    "start": 382.28,
+    "end": 388.03999999999996,
+    "text": "algorithmic questions. And these are typically the types of questions that we're interested in"
+  },
+  {
+    "start": 389.08,
+    "end": 395.64,
+    "text": "in this area of combinatorially configuration. So a couple of examples about structural"
+  },
+  {
+    "start": 395.64,
+    "end": 401.08,
+    "text": "questions would be, well, the simplest one would be how big is this reconfiguration graph,"
+  },
+  {
+    "start": 401.08,
+    "end": 408.52,
+    "text": "right, how many vertices or how many edges. And that's usually not a very hard question to answer"
+  },
+  {
+    "start": 408.52,
+    "end": 415.24,
+    "text": "in terms of upper and lower ones. More interestingly, you can ask, is this reconfiguration graph connected,"
+  },
+  {
+    "start": 415.96,
+    "end": 422.44,
+    "text": "right, or is can I reach any state starting from any other state by a sequence of legal moves?"
+  },
+  {
+    "start": 423.16,
+    "end": 429.8,
+    "text": "And as I told you before, for the 15 puzzle, the reconfiguration graph is definitely not connected"
+  },
+  {
+    "start": 429.8,
+    "end": 435.56,
+    "text": "because there was no way to reverse 14 and 15 in the previous example that I showed you, and you can"
+  },
+  {
+    "start": 435.56,
+    "end": 440.92,
+    "text": "easily prove that, by the way. So when it's not connected, another question would be how many"
+  },
+  {
+    "start": 440.92,
+    "end": 448.84,
+    "text": "components does I have? Is there some sort of a nice structure to the components of this graph?"
+  },
+  {
+    "start": 449.0,
+    "end": 454.67999999999995,
+    "text": "And then another question would be what is the diameter of this reconfiguration graph,"
+  },
+  {
+    "start": 454.67999999999995,
+    "end": 459.15999999999997,
+    "text": "or of each one of its components? And that's usually a very important question to ask when you're"
+  },
+  {
+    "start": 459.15999999999997,
+    "end": 465.96,
+    "text": "dealing with one player games, because this could tell you like what would be the worst possible"
+  },
+  {
+    "start": 465.96,
+    "end": 471.55999999999995,
+    "text": "shortest path to reach a target configuration, or to solve your game, to win your game, for example."
+  },
+  {
+    "start": 472.12,
+    "end": 477.96,
+    "text": "And in the literature, this is sometimes known as God's number, which would be the diameter"
+  },
+  {
+    "start": 477.96,
+    "end": 483.88,
+    "text": "of the reconfiguration graph. And these are all very interesting, very interesting structural"
+  },
+  {
+    "start": 483.88,
+    "end": 491.08,
+    "text": "questions to ask about this reconfiguration graph. Now on the algorithmic side, or the computational"
+  },
+  {
+    "start": 491.08,
+    "end": 497.08,
+    "text": "side, there's the obvious question of if I'm given a starting state and some ending state,"
+  },
+  {
+    "start": 497.08,
+    "end": 502.52,
+    "text": "or target state, like in the case of the puzzle game, that I am given some starting state,"
+  },
+  {
+    "start": 502.52,
+    "end": 507.71999999999997,
+    "text": "and we know what the goal state is. So here, one decision problem would be to answer the"
+  },
+  {
+    "start": 507.71999999999997,
+    "end": 513.24,
+    "text": "question whether it's possible to get to the target state, starting from some initial state,"
+  },
+  {
+    "start": 513.24,
+    "end": 519.16,
+    "text": "that is also given to me. So you can decide to solve this problem either as a decision problem,"
+  },
+  {
+    "start": 519.16,
+    "end": 524.12,
+    "text": "or as a search problem, which would give you the actual sequence of steps that will take you from"
+  },
+  {
+    "start": 524.2,
+    "end": 534.36,
+    "text": "state to the target state. Other interesting computational problems, is it always possible to go"
+  },
+  {
+    "start": 534.36,
+    "end": 539.4,
+    "text": "from one configuration to any other, and this is basically also related to the structural question"
+  },
+  {
+    "start": 539.4,
+    "end": 547.24,
+    "text": "about connected components. And the last question that I would mention, which is also interesting,"
+  },
+  {
+    "start": 547.24,
+    "end": 553.4,
+    "text": "is how fast can you go from one configuration to another, meaning can you do it in at most case"
+  },
+  {
+    "start": 553.4,
+    "end": 570.12,
+    "text": "steps? There is a question I should wait, or no. All right. So think about all of these questions"
+  },
+  {
+    "start": 570.12,
+    "end": 576.84,
+    "text": "that we paused using the simple 15 puzzle game, and now we're going to look at a lot of other"
+  },
+  {
+    "start": 576.84,
+    "end": 585.0,
+    "text": "possible problems where the same configuration graph can be extracted, and we can ask the same"
+  },
+  {
+    "start": 585.0,
+    "end": 591.08,
+    "text": "set of questions. So all of you here are familiar with the case sad problem. So you're given a"
+  },
+  {
+    "start": 591.08,
+    "end": 597.96,
+    "text": "Boolean formula, and you want to know if you can satisfy this formula by assigning values to the"
+  },
+  {
+    "start": 597.96,
+    "end": 603.8000000000001,
+    "text": "variables, and we know that this is NP complete for K greater than or equal to three. So now how can"
+  },
+  {
+    "start": 603.9599999999999,
+    "end": 609.56,
+    "text": "you transform this into a reconfiguration problem? Well, it's very simple. So now you're given the"
+  },
+  {
+    "start": 609.56,
+    "end": 616.52,
+    "text": "formula, and you're given two satisfying assignments. So you can think of those satisfying assignments"
+  },
+  {
+    "start": 616.52,
+    "end": 623.88,
+    "text": "as bit vectors. And so now the question that you can ask is, can I go from the first satisfying"
+  },
+  {
+    "start": 623.88,
+    "end": 632.3599999999999,
+    "text": "assignment as to the next one? By basically flipping one bit at a time, under the condition that I"
+  },
+  {
+    "start": 632.36,
+    "end": 638.84,
+    "text": "remain a satisfying assignment at all times. And notice that without this condition, the problem is"
+  },
+  {
+    "start": 638.84,
+    "end": 647.0,
+    "text": "trivial. So you can basically just flip the bits however you like and reach S from T or T from S."
+  },
+  {
+    "start": 647.64,
+    "end": 654.2,
+    "text": "But once you add this constraint of you should remain a satisfying assignment, the problem becomes"
+  },
+  {
+    "start": 654.2,
+    "end": 660.04,
+    "text": "way more interesting. And you can think of this problem again as walking into solution space"
+  },
+  {
+    "start": 660.8399999999999,
+    "end": 665.48,
+    "text": "of the given formula of all the satisfying assignment of the formula."
+  },
+  {
+    "start": 669.0,
+    "end": 674.52,
+    "text": "All right, so that's the satiric configuration problem. Let's look at another example."
+  },
+  {
+    "start": 675.7199999999999,
+    "end": 683.56,
+    "text": "Graph coloring. We all know it. We all love it. You're given a graph and some integer K, and you are"
+  },
+  {
+    "start": 683.56,
+    "end": 689.16,
+    "text": "asked whether you can properly k color the graph G. And we know again that this is NP complete for"
+  },
+  {
+    "start": 689.16,
+    "end": 694.4399999999999,
+    "text": "K greater than or equal to three. How do you transform that into a reconfiguration problem? Well,"
+  },
+  {
+    "start": 695.24,
+    "end": 701.56,
+    "text": "now you're given a graph. You're given two colorings of the graph alpha and beta. And the question"
+  },
+  {
+    "start": 701.56,
+    "end": 709.24,
+    "text": "is, can you recolor alpha to get the to beta? But you need to recolor one vertex at a time,"
+  },
+  {
+    "start": 709.24,
+    "end": 716.76,
+    "text": "and you need to remain a proper K coloring throughout. Same idea again leads us to this notion of"
+  },
+  {
+    "start": 716.76,
+    "end": 722.68,
+    "text": "the reconfiguration space where we are looking at the K colorings of the graph and how they are"
+  },
+  {
+    "start": 722.68,
+    "end": 729.16,
+    "text": "connected under this adjacent simulation that we define, which is a single vertex recall."
+  },
+  {
+    "start": 731.88,
+    "end": 737.16,
+    "text": "The final example that I will mention, which will be basically what we will focus on in the rest"
+  },
+  {
+    "start": 737.16,
+    "end": 742.84,
+    "text": "of the talk is token placement. I call it, but as you will all guess, this is the famous"
+  },
+  {
+    "start": 742.84,
+    "end": 748.76,
+    "text": "independent set problem. But we will look at it as a token placement problem because it will be"
+  },
+  {
+    "start": 748.76,
+    "end": 753.96,
+    "text": "more useful for the rest of the talk. So you're given a graph G and an integer K. And the question"
+  },
+  {
+    "start": 753.96,
+    "end": 759.96,
+    "text": "is, can you place k tokens on your graph, k black tokens so that no two of these tokens share an"
+  },
+  {
+    "start": 759.96,
+    "end": 766.52,
+    "text": "edge? And of course, we all know that this is an NP complete problem. So how can you transform"
+  },
+  {
+    "start": 766.52,
+    "end": 772.0400000000001,
+    "text": "this problem into a reconfiguration problem? Again, now I'm giving a graph two independent sets of"
+  },
+  {
+    "start": 772.04,
+    "end": 778.76,
+    "text": "the graph, each of size k. And the question is, can I go from one independent set to the other"
+  },
+  {
+    "start": 780.36,
+    "end": 787.48,
+    "text": "under what rule? So here defining the rule for independent set, how can I go between consecutive"
+  },
+  {
+    "start": 787.48,
+    "end": 794.12,
+    "text": "independent sets becomes a little bit less obvious. And there are two main strategies that people"
+  },
+  {
+    "start": 794.12,
+    "end": 800.8399999999999,
+    "text": "have attempted. So the first rule is what we call token jumping. So you are basically allowed"
+  },
+  {
+    "start": 800.84,
+    "end": 807.5600000000001,
+    "text": "to take any token on your graph and jump it to any other vertex on the graph, assuming that it"
+  },
+  {
+    "start": 807.5600000000001,
+    "end": 814.36,
+    "text": "doesn't have a token and that you maintain an independent set at all times. So for example, in this"
+  },
+  {
+    "start": 815.08,
+    "end": 821.1600000000001,
+    "text": "example that I have here, it would be perfectly okay to take this token here and jump it to this"
+  },
+  {
+    "start": 821.1600000000001,
+    "end": 829.5600000000001,
+    "text": "vertex here. Or I could also take this token here and jump it to this vertex here."
+  },
+  {
+    "start": 830.9200000000001,
+    "end": 837.32,
+    "text": "So that, no, actually that would violate the independence. So you can jump to any other vertex as"
+  },
+  {
+    "start": 837.32,
+    "end": 843.64,
+    "text": "long as you maintain independence. And we call that the token jumping rule. The other rule is"
+  },
+  {
+    "start": 843.64,
+    "end": 850.0400000000001,
+    "text": "basically token sliding. So in this case, we only allow a token to slide along edges of the graph."
+  },
+  {
+    "start": 851.48,
+    "end": 860.12,
+    "text": "So a token can only move to adjacent vertex, assuming of course this does not violate independence."
+  },
+  {
+    "start": 860.9200000000001,
+    "end": 865.8000000000001,
+    "text": "So now we have two different reconfiguration graphs we can think about. We can think about the"
+  },
+  {
+    "start": 865.8000000000001,
+    "end": 871.24,
+    "text": "reconfiguration graph under the token jumping adjacency. And we can think about the reconfiguration"
+  },
+  {
+    "start": 871.24,
+    "end": 877.8000000000001,
+    "text": "graph under the token sliding adjacency. And we're going to talk about these two different problems"
+  },
+  {
+    "start": 877.8000000000001,
+    "end": 884.6800000000001,
+    "text": "because they do actually behave quite differently and they produce quite interesting results. Like the"
+  },
+  {
+    "start": 884.6800000000001,
+    "end": 889.8000000000001,
+    "text": "difference between the two, we don't fully understand yet, but we kind of know that token sliding"
+  },
+  {
+    "start": 890.5999999999999,
+    "end": 895.56,
+    "text": "can be harder than token jumping. But there's still a lot of questions to be answered."
+  },
+  {
+    "start": 898.5999999999999,
+    "end": 903.9599999999999,
+    "text": "All right, so some of you might be asking why do we care about studying such problems?"
+  },
+  {
+    "start": 904.76,
+    "end": 913.3199999999999,
+    "text": "There's a lot of motivations out there. I mean, sometimes I would say you don't need motivation."
+  },
+  {
+    "start": 913.3199999999999,
+    "end": 918.28,
+    "text": "They're interesting. There's a lot of open questions that we need to answer. But you can also"
+  },
+  {
+    "start": 918.28,
+    "end": 924.4399999999999,
+    "text": "think about reconfiguration problems as another way of modeling real world algorithmic problems."
+  },
+  {
+    "start": 924.4399999999999,
+    "end": 929.88,
+    "text": "Because you usually never start from scratch. When you're trying to solve real world problems,"
+  },
+  {
+    "start": 929.88,
+    "end": 934.92,
+    "text": "you usually start from something and you're trying to prove it or make it better or change it to"
+  },
+  {
+    "start": 934.92,
+    "end": 942.76,
+    "text": "something more appropriate. Another very good application of studying these problems is that they"
+  },
+  {
+    "start": 942.76,
+    "end": 948.12,
+    "text": "give you a better understanding of solution spaces, which can be very important for other areas as"
+  },
+  {
+    "start": 948.12,
+    "end": 953.96,
+    "text": "well. And they have been used in statistical physics, quantum computing, and complexity theory,"
+  },
+  {
+    "start": 953.96,
+    "end": 960.12,
+    "text": "combinatorics, and robotics, and hopefully many more applications to come. But what I would tell you"
+  },
+  {
+    "start": 960.12,
+    "end": 965.96,
+    "text": "is that there are so many very interesting problems that are so easy to start thinking about without"
+  },
+  {
+    "start": 965.96,
+    "end": 971.72,
+    "text": "having too much background, which is why I think this is a very nice area to start working on"
+  },
+  {
+    "start": 972.84,
+    "end": 975.16,
+    "text": "at any level in your research career."
+  },
+  {
+    "start": 979.08,
+    "end": 985.16,
+    "text": "All right, so I'll take a break here and take questions if there are any. And then we will dive into"
+  },
+  {
+    "start": 985.16,
+    "end": 992.6,
+    "text": "the token jumping and token sliding problems, what we know about them in terms of classical complexity,"
+  },
+  {
+    "start": 992.6,
+    "end": 997.32,
+    "text": "and what was basically the starting point for the project that led us to this paper."
+  },
+  {
+    "start": 1000.68,
+    "end": 1001.88,
+    "text": "Any questions at this point?"
+  },
+  {
+    "start": 1002.2,
+    "end": 1012.28,
+    "text": "I'm, I apologize for the small context, which I'm interrupting here. So this is just to announce for"
+  },
+  {
+    "start": 1012.28,
+    "end": 1018.2,
+    "text": "the PC 301 workshop that will be happening in December end. And this will be slightly different from"
+  },
+  {
+    "start": 1018.2,
+    "end": 1025.08,
+    "text": "the previous two workshops. First major difference, this will be online. Second is some advanced topics"
+  },
+  {
+    "start": 1025.08,
+    "end": 1033.1599999999999,
+    "text": "will be discussed. So anyone who intends to explore somewhat more complex topics in parametrize"
+  },
+  {
+    "start": 1033.1599999999999,
+    "end": 1039.96,
+    "text": "algorithms is invited to have a check. They can look at the website that has been shared on the chat."
+  },
+  {
+    "start": 1039.96,
+    "end": 1045.56,
+    "text": "And if you wish, you can register simply by filling a form that is linked at the bottom of the"
+  },
+  {
+    "start": 1045.56,
+    "end": 1051.8,
+    "text": "webpage. So just to inform you all about it. And sorry for the interruption for this now."
+  },
+  {
+    "start": 1051.96,
+    "end": 1063.48,
+    "text": "All right. All right. So let's start talking about token jumping, token sliding, and a little bit"
+  },
+  {
+    "start": 1063.48,
+    "end": 1070.28,
+    "text": "about classical complexity. I know everybody here knows about P and NP. So I'm not going to talk about"
+  },
+  {
+    "start": 1070.28,
+    "end": 1076.52,
+    "text": "this. Some of you might not be familiar with the PSPACE class. So just a quick note that's as much as"
+  },
+  {
+    "start": 1076.52,
+    "end": 1083.32,
+    "text": "you will need to know for this talk is that PSPACE is the set of all decision problems that can be"
+  },
+  {
+    "start": 1083.32,
+    "end": 1089.32,
+    "text": "solved using a polynomial amount of space. And the reason why I mentioned this class is because"
+  },
+  {
+    "start": 1090.52,
+    "end": 1095.24,
+    "text": "many, many, many, many, the configuration problem actually are PSPACE complete."
+  },
+  {
+    "start": 1096.12,
+    "end": 1102.36,
+    "text": "Okay. And so, so what we know, the standard inclusion is we know that P is contained in NP,"
+  },
+  {
+    "start": 1102.4399999999998,
+    "end": 1107.56,
+    "text": "which is contained in PSPACE. But a very useful thing about PSPACE is that savage"
+  },
+  {
+    "start": 1107.56,
+    "end": 1114.6799999999998,
+    "text": "prove that it's equal to NP space. So polynomial space and non deterministic polynomial space are"
+  },
+  {
+    "start": 1114.6799999999998,
+    "end": 1121.08,
+    "text": "the same class. Basically, and that's extremely useful when you start to think about"
+  },
+  {
+    "start": 1121.08,
+    "end": 1125.56,
+    "text": "reconfiguration problems, because if you think about reconfiguration problem, where you're given some"
+  },
+  {
+    "start": 1125.8,
+    "end": 1133.56,
+    "text": "state and you want to reach the other one. So basically, you can solve that easily in non deterministic"
+  },
+  {
+    "start": 1133.56,
+    "end": 1142.44,
+    "text": "polynomial space, which basically implies that they are NP space. But actually, you can show a lot"
+  },
+  {
+    "start": 1142.44,
+    "end": 1148.2,
+    "text": "more than that. You can show that many, really many reconfiguration problems are actually PSPACE"
+  },
+  {
+    "start": 1148.2,
+    "end": 1153.8,
+    "text": "complete, which is not surprising. Right. The fact that many of these reconfiguration problems are"
+  },
+  {
+    "start": 1153.8,
+    "end": 1162.68,
+    "text": "PSPACE complete is not very surprising. Right. And then not being in NP is because they don't always"
+  },
+  {
+    "start": 1162.68,
+    "end": 1168.6,
+    "text": "have polynomial-size certificates, which also makes sense, because sometimes the number of steps"
+  },
+  {
+    "start": 1168.6,
+    "end": 1174.12,
+    "text": "that you need to take to go from one configuration to the other might very well be exponential in the"
+  },
+  {
+    "start": 1174.12,
+    "end": 1180.6,
+    "text": "graph size. But there are also some extremely surprising results. And these are some of the results,"
+  },
+  {
+    "start": 1180.6,
+    "end": 1188.1999999999998,
+    "text": "some of my favorite results in the area. So for example, you all know that coloring is NP complete"
+  },
+  {
+    "start": 1188.1999999999998,
+    "end": 1194.4399999999998,
+    "text": "even for k equals 3. However, it turns out that if you try to solve the recoloring problem"
+  },
+  {
+    "start": 1195.48,
+    "end": 1201.48,
+    "text": "for k equals 3, it's actually polynomial-time-solvable. So if I give you two, three"
+  },
+  {
+    "start": 1201.48,
+    "end": 1208.4399999999998,
+    "text": "colorings of a graph, and I ask you, is there a path between them that recolors one vertex at a time"
+  },
+  {
+    "start": 1208.44,
+    "end": 1214.8400000000001,
+    "text": "and never is and is always a valid three coloring, then this problem can be solved in polynomial-time."
+  },
+  {
+    "start": 1214.8400000000001,
+    "end": 1219.56,
+    "text": "And the recoloring problem only becomes PSPACE complete for k equals 4 and more."
+  },
+  {
+    "start": 1221.96,
+    "end": 1227.64,
+    "text": "Right. So that's the first surprising result. Another very surprising result is that"
+  },
+  {
+    "start": 1228.52,
+    "end": 1235.0,
+    "text": "as your all FPT experts here, I know that you're all familiar with the fact that usually when"
+  },
+  {
+    "start": 1235.0,
+    "end": 1240.84,
+    "text": "we study problems on graphs of bounded bucket width, path width, three width, they tend to become"
+  },
+  {
+    "start": 1240.84,
+    "end": 1249.0,
+    "text": "easier. It turns out that that's not really the case for reconfiguration problems, at least for"
+  },
+  {
+    "start": 1249.0,
+    "end": 1253.4,
+    "text": "token sliding and jumping, which is the two problems that are related to independent set. It turns"
+  },
+  {
+    "start": 1253.4,
+    "end": 1259.88,
+    "text": "out that those two problems remain PSPACE complete even if you have a graph of constant three width"
+  },
+  {
+    "start": 1259.88,
+    "end": 1265.24,
+    "text": "or path width or even bucket width. So a very, very, very simple graph structure"
+  },
+  {
+    "start": 1267.0,
+    "end": 1268.6000000000001,
+    "text": "still the problem remains hard."
+  },
+  {
+    "start": 1271.16,
+    "end": 1278.6000000000001,
+    "text": "All right. And finally, the last theorem that I also like a lot shows you basically that"
+  },
+  {
+    "start": 1278.6000000000001,
+    "end": 1286.2,
+    "text": "sliding and jumping behave differently. And it was shown that if you restrict yourself to"
+  },
+  {
+    "start": 1286.2,
+    "end": 1291.4,
+    "text": "bipartite graphs where we know that max independent set can be solved in polynomial time,"
+  },
+  {
+    "start": 1292.28,
+    "end": 1298.6000000000001,
+    "text": "if you restrict yourself to those graphs, it turns out that token jumping is NP complete,"
+  },
+  {
+    "start": 1299.72,
+    "end": 1309.96,
+    "text": "whereas token sliding is PSPACE complete, which is a strange difference between the behavior"
+  },
+  {
+    "start": 1309.96,
+    "end": 1321.48,
+    "text": "of those two problems. All right. So in fact, we know a lot more about token sliding and"
+  },
+  {
+    "start": 1321.48,
+    "end": 1327.48,
+    "text": "token jumping. These problems have been at the heart of the area of combinatorial reconfiguration."
+  },
+  {
+    "start": 1327.48,
+    "end": 1333.08,
+    "text": "They have been studied so much. And we know so much about them at least in terms of standard"
+  },
+  {
+    "start": 1333.8,
+    "end": 1342.1999999999998,
+    "text": "or classical complexity. So some of the important results for our paper that we're going to focus on"
+  },
+  {
+    "start": 1343.8799999999999,
+    "end": 1350.12,
+    "text": "is this result. So that's going to be the starting point of the results that we will discuss"
+  },
+  {
+    "start": 1350.12,
+    "end": 1355.08,
+    "text": "next when we move to parametrize complexity. So the fact that token sliding and token jumping"
+  },
+  {
+    "start": 1356.6,
+    "end": 1361.8799999999999,
+    "text": "are PSPACE complete and then NP complete respectively on bipartite graphs was the starting point"
+  },
+  {
+    "start": 1361.88,
+    "end": 1366.92,
+    "text": "of our next paper. But there are some very interesting results here that are also worth mentioning."
+  },
+  {
+    "start": 1366.92,
+    "end": 1372.6000000000001,
+    "text": "So for example, for even whole figure half we know how to solve token jumping in polynomial time."
+  },
+  {
+    "start": 1373.96,
+    "end": 1378.2800000000002,
+    "text": "But the complexity of independent set even remains open on this class of graphs."
+  },
+  {
+    "start": 1379.5600000000002,
+    "end": 1385.4,
+    "text": "And the complexity of token sliding also remains open. So we don't know how to check if given"
+  },
+  {
+    "start": 1385.4,
+    "end": 1391.48,
+    "text": "two independent sets, I can slide one to the other. Can you answer that question in polynomial"
+  },
+  {
+    "start": 1391.64,
+    "end": 1399.4,
+    "text": "time for even whole free graphs? For split graphs and chordal graphs, they also behave extremely"
+  },
+  {
+    "start": 1399.4,
+    "end": 1405.64,
+    "text": "differently token sliding and token jumping. So they are token sliding is PSPACE complete on"
+  },
+  {
+    "start": 1405.64,
+    "end": 1412.28,
+    "text": "split graphs and chordal graphs while token jumping is polynomial time. And that is some of the"
+  },
+  {
+    "start": 1412.28,
+    "end": 1419.16,
+    "text": "reasons why we feel that token sliding is harder usually than token jumping. But it's not always the"
+  },
+  {
+    "start": 1419.16,
+    "end": 1433.64,
+    "text": "case. All right. So that's it for classical complexity. So now let's move on to parametrize complexity."
+  },
+  {
+    "start": 1433.64,
+    "end": 1439.24,
+    "text": "And let's basically think about how you can parametrize those two problems token jumping and"
+  },
+  {
+    "start": 1439.24,
+    "end": 1446.92,
+    "text": "token sliding. So there's the obvious parameter would be the number of tokens. So one of the obvious"
+  },
+  {
+    "start": 1446.92,
+    "end": 1453.48,
+    "text": "parameters would be the number of tokens. So and we're going to denote that by K. Another parameter"
+  },
+  {
+    "start": 1453.48,
+    "end": 1458.8400000000001,
+    "text": "would be the length of the sequence. Like how many steps does it take to go from one independent set"
+  },
+  {
+    "start": 1459.4,
+    "end": 1465.24,
+    "text": "to the other? You can also obviously parametrize by tree width or path width or any combination of the"
+  },
+  {
+    "start": 1465.24,
+    "end": 1474.1200000000001,
+    "text": "above. When we started working on this problem, our initial aim was to basically study the"
+  },
+  {
+    "start": 1474.12,
+    "end": 1480.84,
+    "text": "parametrize complexity of token sliding and token jumping on bipartite graphs using the parameter K"
+  },
+  {
+    "start": 1480.84,
+    "end": 1486.9199999999998,
+    "text": "number of tokens. Right. Because remember, we saw that token sliding is PSPACE complete on"
+  },
+  {
+    "start": 1486.9199999999998,
+    "end": 1493.6399999999999,
+    "text": "bipartite graphs and token jumping is NP. So you were interested to see if basically this is going"
+  },
+  {
+    "start": 1493.6399999999999,
+    "end": 1502.28,
+    "text": "to give us W1 hardness for token sliding and FPTNES for token jumping. At least that was the"
+  },
+  {
+    "start": 1502.28,
+    "end": 1508.04,
+    "text": "initial hope. That's why we started working on this project. We weren't able to answer the"
+  },
+  {
+    "start": 1508.04,
+    "end": 1515.24,
+    "text": "two questions. So we were able to answer one side of the question, which is we were able to show"
+  },
+  {
+    "start": 1515.24,
+    "end": 1524.28,
+    "text": "that on bipartite graphs token sliding is in fact W1 hard. So token sliding parametrize by the"
+  },
+  {
+    "start": 1524.28,
+    "end": 1531.96,
+    "text": "number of tokens on bipartite graphs is W1 hard. We were not able to answer the question for token jumping."
+  },
+  {
+    "start": 1533.24,
+    "end": 1541.24,
+    "text": "So that is still an open question. So having answered that question and failed on the next question,"
+  },
+  {
+    "start": 1541.24,
+    "end": 1546.04,
+    "text": "we started thinking about ways to basically simplify a little bit some of these questions."
+  },
+  {
+    "start": 1547.96,
+    "end": 1553.56,
+    "text": "So the next thing we asked ourselves, so there are two directions where you can try and simplify."
+  },
+  {
+    "start": 1555.08,
+    "end": 1561.56,
+    "text": "So the next thing we asked ourselves was, okay, so from bipartite graphs, how can I go to other"
+  },
+  {
+    "start": 1561.56,
+    "end": 1570.04,
+    "text": "classes of graphs and see where token jumping becomes hard or easy? And it turned out that if you"
+  },
+  {
+    "start": 1570.04,
+    "end": 1578.28,
+    "text": "basically exclude only C4 from your graph, right? And so we, because in bipartite graphs, you're"
+  },
+  {
+    "start": 1578.28,
+    "end": 1587.32,
+    "text": "excluding all odd cycles, right? So we started thinking about what kinds of cycles affect the"
+  },
+  {
+    "start": 1587.32,
+    "end": 1593.0,
+    "text": "behavior of those problems. So the first question was, what about C4 free graphs? And it turned out"
+  },
+  {
+    "start": 1593.0,
+    "end": 1602.52,
+    "text": "that both problems remained W1 hard on C4 free graphs. Now, if you exclude C3 and C4, it turns out"
+  },
+  {
+    "start": 1602.52,
+    "end": 1609.56,
+    "text": "that token jumping becomes FPT has an order K squared kernel, but for token sliding, we were not"
+  },
+  {
+    "start": 1609.56,
+    "end": 1619.8,
+    "text": "able to determine the complexity. Now, if you go to the other side of that, so what if we enforce"
+  },
+  {
+    "start": 1619.8,
+    "end": 1629.1599999999999,
+    "text": "both bipartite as well as C4 freeness? So in that case, we were able to show that both problems became"
+  },
+  {
+    "start": 1629.1599999999999,
+    "end": 1639.24,
+    "text": "FPT. Okay, and basically the bipartite bounded degree graphs was just a stepping stone to get to the"
+  },
+  {
+    "start": 1639.24,
+    "end": 1647.48,
+    "text": "bipartite C4 free graph result. So let me, let me repeat that maybe slightly more clearly. So after"
+  },
+  {
+    "start": 1647.48,
+    "end": 1652.76,
+    "text": "basically answering the first question, which was bipartite graphs, we were able to show that token"
+  },
+  {
+    "start": 1652.76,
+    "end": 1659.24,
+    "text": "sliding was W1 hard, but we were not able to determine the complexity of token jumping. So then we"
+  },
+  {
+    "start": 1659.24,
+    "end": 1667.08,
+    "text": "went to C4 free graphs and we were able to show that both problems are actually W1 hard. Then if we added"
+  },
+  {
+    "start": 1667.08,
+    "end": 1673.72,
+    "text": "one more constraint, which was C3 C4 free graphs, we got FPT and is for token jumping, but it"
+  },
+  {
+    "start": 1673.72,
+    "end": 1681.1599999999999,
+    "text": "remained open for token sliding. And on the other side of the spectrum, so if we keep bipartite and"
+  },
+  {
+    "start": 1681.1599999999999,
+    "end": 1692.6,
+    "text": "enforce the C4 freeness, we get FPT for both problems. And as a side note, this blue result is not"
+  },
+  {
+    "start": 1692.6,
+    "end": 1711.1599999999999,
+    "text": "part of our paper. This was known prior to our paper. So any questions about the results?"
+  },
+  {
+    "start": 1711.16,
+    "end": 1730.44,
+    "text": "No questions. All right, cool. So lots of open problems. The first and obvious one is, what is the"
+  },
+  {
+    "start": 1730.44,
+    "end": 1737.16,
+    "text": "pattern is a token jumping FPT parameterized by K on bipartite graphs? And that's really, I mean,"
+  },
+  {
+    "start": 1737.16,
+    "end": 1743.3200000000002,
+    "text": "that was the initial question that we set out to answer and couldn't. So that remains open."
+  },
+  {
+    "start": 1744.92,
+    "end": 1753.48,
+    "text": "And so I will not be going over the hardness reduction for token sliding on bipartite graphs,"
+  },
+  {
+    "start": 1753.48,
+    "end": 1759.8000000000002,
+    "text": "because it's quite technical. I don't feel a talk is the right place to go over it. But"
+  },
+  {
+    "start": 1760.44,
+    "end": 1767.8,
+    "text": "if you go over the reduction, you will see that it's the two problems really behave differently."
+  },
+  {
+    "start": 1767.8,
+    "end": 1773.32,
+    "text": "And there's that doesn't seem to be a chance to basically make the same type of reduction work for"
+  },
+  {
+    "start": 1773.32,
+    "end": 1781.0,
+    "text": "token jumping. So the second interesting open question is, how about token jumping parameterized"
+  },
+  {
+    "start": 1781.0,
+    "end": 1785.96,
+    "text": "by K on triangle free graphs? That's basically even more general than question one."
+  },
+  {
+    "start": 1786.92,
+    "end": 1793.4,
+    "text": "Right? So, and the reason why I mentioned this question separately is because almost every reduction"
+  },
+  {
+    "start": 1793.4,
+    "end": 1801.24,
+    "text": "that I know of includes large clicks. So you need to use large clicks in your reductions. So how about"
+  },
+  {
+    "start": 1801.24,
+    "end": 1807.8,
+    "text": "if we don't allow triangle and large clicks? So can we can we can we then say something about the"
+  },
+  {
+    "start": 1807.8,
+    "end": 1813.4,
+    "text": "problem? So that's for token jumping. Now, when when you go to token sliding,"
+  },
+  {
+    "start": 1814.3600000000001,
+    "end": 1821.72,
+    "text": "so so the open problem is what happens for token sliding on graphs of girth at least five. So if"
+  },
+  {
+    "start": 1821.72,
+    "end": 1830.2800000000002,
+    "text": "they are C3 C4 free, or you can even make that a bit weaker and ask for any girth of at least P"
+  },
+  {
+    "start": 1830.2800000000002,
+    "end": 1839.4,
+    "text": "for some constant P. And for all of these questions, of course, polynomial kernels would be interesting"
+  },
+  {
+    "start": 1840.0400000000002,
+    "end": 1845.0,
+    "text": "because in our case, we do get polynomial kernels for the FB."
+  },
+  {
+    "start": 1847.64,
+    "end": 1853.3200000000002,
+    "text": "And the polynomials are not great, but polynomial regardless."
+  },
+  {
+    "start": 1856.68,
+    "end": 1864.2800000000002,
+    "text": "All right, so in the rest of the talk, I will try to cover some of the technical stuff. And as"
+  },
+  {
+    "start": 1864.28,
+    "end": 1869.6399999999999,
+    "text": "promised, I will try to keep it as light as possible so that I can give you some of a lot of the"
+  },
+  {
+    "start": 1869.6399999999999,
+    "end": 1876.36,
+    "text": "intuition and techniques that are used in this paper and that are generally used when dealing with"
+  },
+  {
+    "start": 1876.36,
+    "end": 1883.0,
+    "text": "reconfiguration problems. So the first result that we will go over is this W hardness on C4 free"
+  },
+  {
+    "start": 1883.0,
+    "end": 1890.04,
+    "text": "graphs. Right? For both token sliding and token jumping. It's the same reduction and and you will"
+  },
+  {
+    "start": 1890.04,
+    "end": 1898.6,
+    "text": "get both results because we will be using maximum independent sets. So if you're trying to basically"
+  },
+  {
+    "start": 1899.6399999999999,
+    "end": 1905.96,
+    "text": "do token sliding from one maximum independent set to the other, or token jumping, these two rules"
+  },
+  {
+    "start": 1905.96,
+    "end": 1911.0,
+    "text": "become equivalent, jumping becomes equivalent to sliding. So when you're dealing with maximum"
+  },
+  {
+    "start": 1911.0,
+    "end": 1917.32,
+    "text": "independent sets, these two basically rules are the same. And that's what we're going to do. But"
+  },
+  {
+    "start": 1917.32,
+    "end": 1922.36,
+    "text": "what we're going to prove actually is a stronger theorem. What we're going to prove is the following"
+  },
+  {
+    "start": 1922.36,
+    "end": 1931.8799999999999,
+    "text": "theorem. If you take any p greater than or equal to four, then both problems are W hard on C4, C5,"
+  },
+  {
+    "start": 1932.76,
+    "end": 1942.84,
+    "text": "dot dot dot up to CP free graphs, which implies of course C4 free graphs. But you can basically exclude"
+  },
+  {
+    "start": 1943.8,
+    "end": 1950.6799999999998,
+    "text": "any cycles from C4 up to CP for constant P and the problems will remain W1 hard."
+  },
+  {
+    "start": 1957.0,
+    "end": 1963.56,
+    "text": "So how do we prove this result? In fact, we use a known reduction from a problem known as grid"
+  },
+  {
+    "start": 1963.56,
+    "end": 1972.28,
+    "text": "tiling, which is a W1 hard problem. And grid tiling is reduced to the independent set problem on"
+  },
+  {
+    "start": 1972.28,
+    "end": 1981.72,
+    "text": "C4 up to CP free graphs. And that reduction was used to show that independent set remains W1 hard"
+  },
+  {
+    "start": 1981.72,
+    "end": 1989.3999999999999,
+    "text": "if you exclude C4 up to CP for any constant P. But what is interesting and useful in that"
+  },
+  {
+    "start": 1989.4,
+    "end": 1996.1200000000001,
+    "text": "reduction is the graph that is obtained from the reduction. So the graph that is obtained from"
+  },
+  {
+    "start": 1996.1200000000001,
+    "end": 2002.68,
+    "text": "the reduction has three properties that are going to be useful to us. The first property is that"
+  },
+  {
+    "start": 2002.68,
+    "end": 2011.72,
+    "text": "you can partition the graph into basically 8k squared into P plus 1 clicks. So you have a bunch of"
+  },
+  {
+    "start": 2011.72,
+    "end": 2016.92,
+    "text": "clicks each of size n and all of the edges basically are between the clicks."
+  },
+  {
+    "start": 2019.0,
+    "end": 2024.6000000000001,
+    "text": "But that's it, that's it, that's the whole of the graph. It's a bunch of clicks and edges between them."
+  },
+  {
+    "start": 2025.72,
+    "end": 2032.52,
+    "text": "Of course, the more important property as well here is that this graph is going to be C4 up to CP free."
+  },
+  {
+    "start": 2032.92,
+    "end": 2043.08,
+    "text": "It will not have any of those cycles as an induced sub graph. And it's an equivalent instance to"
+  },
+  {
+    "start": 2043.08,
+    "end": 2051.24,
+    "text": "the grid tiling. And that basically gives you a W1 hardness of independent set on this class of graphs."
+  },
+  {
+    "start": 2053.4,
+    "end": 2059.56,
+    "text": "So notice in this case that an independent set of size 8k squared into P plus 1 will have to"
+  },
+  {
+    "start": 2059.56,
+    "end": 2063.7999999999997,
+    "text": "be a maximum independent set because that's how many clicks we get in the resulting graph."
+  },
+  {
+    "start": 2064.52,
+    "end": 2069.88,
+    "text": "And that's basically the sizes that we will be working with, more or less up to some modifications."
+  },
+  {
+    "start": 2070.44,
+    "end": 2078.12,
+    "text": "But this will allow us to basically conclude that both sliding and jumping are hard on this class of"
+  },
+  {
+    "start": 2078.12,
+    "end": 2088.52,
+    "text": "graphs. So how do we use this for showing hardness of token sliding and token jumping? And let's"
+  },
+  {
+    "start": 2088.52,
+    "end": 2094.52,
+    "text": "focus on token sliding for now because it's going to be the same anyway. So we have those clicks"
+  },
+  {
+    "start": 2095.08,
+    "end": 2102.12,
+    "text": "and some edges that go between the clicks. So the first attempt would be as follows. We will add"
+  },
+  {
+    "start": 2102.84,
+    "end": 2108.6,
+    "text": "a universal vertex to each one of the clicks and we will call this the starting set or the starting"
+  },
+  {
+    "start": 2108.6,
+    "end": 2114.6,
+    "text": "independent set. And then we add another universal vertex to each one of the clicks and call this"
+  },
+  {
+    "start": 2114.6,
+    "end": 2120.44,
+    "text": "the target independent set. And now basically we have our instance of token sliding. We want to"
+  },
+  {
+    "start": 2120.44,
+    "end": 2130.2,
+    "text": "slide everybody in S down to T. So notice that this is useful because we don't introduce any of the"
+  },
+  {
+    "start": 2130.2,
+    "end": 2138.68,
+    "text": "forbidden cycles. So we are still fine. And if we could guarantee that all of the tokens will be"
+  },
+  {
+    "start": 2138.68,
+    "end": 2145.24,
+    "text": "on the on the clicks simultaneously, then this will imply an independent set in the original graph"
+  },
+  {
+    "start": 2146.2,
+    "end": 2151.3999999999996,
+    "text": "which concludes our proof. But unfortunately in this case, we definitely cannot conclude that"
+  },
+  {
+    "start": 2152.04,
+    "end": 2159.3199999999997,
+    "text": "because each rent token can slide independently here and then here and then the next one can"
+  },
+  {
+    "start": 2159.3199999999997,
+    "end": 2167.7999999999997,
+    "text": "follow, etc, etc, etc. So you need some way of forbidden for bidding these tokens to behave"
+  },
+  {
+    "start": 2167.8,
+    "end": 2175.0,
+    "text": "freely. We want to make sure that they will all be inside the clicks simultaneously and we will"
+  },
+  {
+    "start": 2175.0,
+    "end": 2180.52,
+    "text": "be done. And notice that we're going to have 8k squared and 2p plus 1 tokens, right? 1 for each"
+  },
+  {
+    "start": 2180.52,
+    "end": 2190.04,
+    "text": "click and 2 universal vertices for each click. So how do we fix this time of 1080 to issue? Well,"
+  },
+  {
+    "start": 2190.04,
+    "end": 2197.7200000000003,
+    "text": "here's how we can do it. So instead of simply adding universal vertices, we're also going to add"
+  },
+  {
+    "start": 2197.72,
+    "end": 2203.48,
+    "text": "an edge between every two universal vertices on a click and then we're going to add something that"
+  },
+  {
+    "start": 2203.48,
+    "end": 2211.3999999999996,
+    "text": "we call a switch. And in this case, it's a simple edge and the red token here needs to go to the blue"
+  },
+  {
+    "start": 2211.3999999999996,
+    "end": 2219.9599999999996,
+    "text": "position, right? So now we have one extra token inside our graph. But now notice what happens. If"
+  },
+  {
+    "start": 2220.52,
+    "end": 2229.96,
+    "text": "any red token wants to come to the blue position, then this red token needs to be moved to this"
+  },
+  {
+    "start": 2229.96,
+    "end": 2236.28,
+    "text": "position before. And if you move that token up to the blue position, then you can no longer have"
+  },
+  {
+    "start": 2236.28,
+    "end": 2242.76,
+    "text": "any of the red tokens on the universal vertices, which means that they will all have to be simultaneously"
+  },
+  {
+    "start": 2242.76,
+    "end": 2251.32,
+    "text": "inside the clicks. And now we get the behavior that we want. So now we can guarantee that if there"
+  },
+  {
+    "start": 2251.32,
+    "end": 2258.5200000000004,
+    "text": "is a sequence that takes the red tokens to the blue position, then somewhere along that sequence,"
+  },
+  {
+    "start": 2259.32,
+    "end": 2264.76,
+    "text": "the tokens are all going to be within the clicks. Unfortunately, what happened here is we might"
+  },
+  {
+    "start": 2264.76,
+    "end": 2272.6000000000004,
+    "text": "have introduced some of the forbidden cycles. We can no longer guarantee that this is c4 up to cp3."
+  },
+  {
+    "start": 2273.2400000000002,
+    "end": 2278.6800000000003,
+    "text": "So what you can do in this case to solve this problem, and I'm not going to go into the details,"
+  },
+  {
+    "start": 2279.4,
+    "end": 2286.2000000000003,
+    "text": "but the intuition should be pretty clear, is that you can subdivide those edges, make them long"
+  },
+  {
+    "start": 2286.2000000000003,
+    "end": 2292.0400000000004,
+    "text": "enough so that you don't introduce any forbidden cycles and add appropriate tokens inside of them to"
+  },
+  {
+    "start": 2292.0400000000004,
+    "end": 2299.8,
+    "text": "get the same behavior. Because notice that the number of such edges is bounded by a function of k,"
+  },
+  {
+    "start": 2300.6000000000004,
+    "end": 2311.2400000000002,
+    "text": "by a function of yes, k and p. So you can make these edges subdivide them as many times as needed,"
+  },
+  {
+    "start": 2311.2400000000002,
+    "end": 2317.2400000000002,
+    "text": "add as many tokens as needed to maintain all the properties that we need and to maintain that we're"
+  },
+  {
+    "start": 2317.2400000000002,
+    "end": 2323.5600000000004,
+    "text": "going from one maximum independent set to the other, which will give you W1 hardness for both"
+  },
+  {
+    "start": 2323.56,
+    "end": 2335.24,
+    "text": "token sliding as well as token jumping. All right, questions?"
+  },
+  {
+    "start": 2335.3999999999996,
+    "end": 2357.64,
+    "text": "No questions? All right, so let's keep going. So now I'm going to talk about some positive result."
+  },
+  {
+    "start": 2358.04,
+    "end": 2363.08,
+    "text": "So the result that I'm going to talk about is this one here."
+  },
+  {
+    "start": 2363.96,
+    "end": 2371.96,
+    "text": "All right, so I'm going to show you that on c3c4 free rafts, token jumping is actually"
+  },
+  {
+    "start": 2371.96,
+    "end": 2378.44,
+    "text": "fpt and has a quadratic kernel, but again, what we will show is a stronger result."
+  },
+  {
+    "start": 2379.4,
+    "end": 2388.92,
+    "text": "So what we will show is the following theorem. What we will show is can be summarized as follows."
+  },
+  {
+    "start": 2388.92,
+    "end": 2396.52,
+    "text": "So if you look at any graph or at any instance of the token jumping problem. So remember, an instance"
+  },
+  {
+    "start": 2396.52,
+    "end": 2402.84,
+    "text": "of token jumping has the input graph, the starting set, the target set, and k as the number of tokens."
+  },
+  {
+    "start": 2403.56,
+    "end": 2413.6400000000003,
+    "text": "So let me try and draw something here. So if you look at your graph, you can kind of decompose it"
+  },
+  {
+    "start": 2413.6400000000003,
+    "end": 2421.2400000000002,
+    "text": "into something which is more or less as follows. So you have s, you have t, the intersection need not"
+  },
+  {
+    "start": 2421.3199999999997,
+    "end": 2430.52,
+    "text": "be empty. And then you have the neighborhood of s union t. And then you have the rest of the graph."
+  },
+  {
+    "start": 2433.16,
+    "end": 2439.4799999999996,
+    "text": "So we're going to call the rest of the graph h. And we're going to call the close neighborhood"
+  },
+  {
+    "start": 2439.4799999999996,
+    "end": 2449.16,
+    "text": "of s union t, or if you will, this yellow part here, we call that j. So we can think of our problem"
+  },
+  {
+    "start": 2449.24,
+    "end": 2453.56,
+    "text": "of our graph as being decomposed into those two areas, h and j."
+  },
+  {
+    "start": 2455.56,
+    "end": 2464.2,
+    "text": "Okay, so the theorem states the following. If h is epsilon sparse, where epsilon sparse"
+  },
+  {
+    "start": 2464.2,
+    "end": 2471.0,
+    "text": "means that the number of edges is at most n squared minus epsilon positive epsilon. So if h is"
+  },
+  {
+    "start": 2471.0,
+    "end": 2481.32,
+    "text": "epsilon sparse and j is c3 c4 free, then the problem admits a kernel, which is that big,"
+  },
+  {
+    "start": 2481.32,
+    "end": 2490.2,
+    "text": "k squared plus k into 1 plus 1 over epsilon. So notice now that we only need that h is epsilon sparse."
+  },
+  {
+    "start": 2491.72,
+    "end": 2498.76,
+    "text": "And we only require c3 c4 freeness inside j, which is s union t close neighborhood."
+  },
+  {
+    "start": 2499.7200000000003,
+    "end": 2510.28,
+    "text": "Close neighborhood of s union t. And this idea is actually is not a new idea. So this idea is"
+  },
+  {
+    "start": 2511.5600000000004,
+    "end": 2517.7200000000003,
+    "text": "okay, I had the drawing here. I should have used it. So the idea comes from has been used before."
+  },
+  {
+    "start": 2518.36,
+    "end": 2523.0,
+    "text": "And it's what we call the buffer technique for the token jumping problem. And then the"
+  },
+  {
+    "start": 2523.16,
+    "end": 2530.04,
+    "text": "solution behind the buffer technique is very simple. So if I have s union t, but somewhere in the"
+  },
+  {
+    "start": 2530.04,
+    "end": 2536.36,
+    "text": "graph, which is not in the close neighborhood of s union t, I have a case sized independent set,"
+  },
+  {
+    "start": 2536.36,
+    "end": 2544.12,
+    "text": "then you are done. Right? If I have a case sized independent set in h, then you're done. You can"
+  },
+  {
+    "start": 2544.12,
+    "end": 2551.4,
+    "text": "basically take all the tokens on s, jump them into those independent yellow vertices in h,"
+  },
+  {
+    "start": 2551.4,
+    "end": 2559.1600000000003,
+    "text": "and then jump them back to t. So in some sense, when h has a large independent set, that's the easy case."
+  },
+  {
+    "start": 2560.84,
+    "end": 2565.0,
+    "text": "Right? You're done. If you can find the large enough independent set in h, you're done."
+  },
+  {
+    "start": 2566.2000000000003,
+    "end": 2571.0,
+    "text": "And that's what we call the buffer technique, because it's been also used to show that the problem"
+  },
+  {
+    "start": 2571.0,
+    "end": 2578.2000000000003,
+    "text": "is Fpt on planar graphs, for example, or k3 j free graphs. So graphs without large bi-clips."
+  },
+  {
+    "start": 2578.8399999999997,
+    "end": 2592.7599999999998,
+    "text": "So it's a well-known technique. All right. So what do we show? So we're going to use the buffer technique,"
+  },
+  {
+    "start": 2592.7599999999998,
+    "end": 2600.4399999999996,
+    "text": "and we're going to combine it with something else. So we show that you have a yes instance"
+  },
+  {
+    "start": 2601.4,
+    "end": 2609.8,
+    "text": "whenever one of those two conditions is true. The first condition is that h is epsilon sparse and"
+  },
+  {
+    "start": 2609.8,
+    "end": 2618.52,
+    "text": "contains more than this many vertices. And this is relatively easy. When you contain this many"
+  },
+  {
+    "start": 2618.52,
+    "end": 2624.04,
+    "text": "vertices and you are epsilon sparse, then you will have a case size independent set. And that's"
+  },
+  {
+    "start": 2624.12,
+    "end": 2630.2,
+    "text": "basically the buffer technique. When h is epsilon sparse and has that many vertices or more,"
+  },
+  {
+    "start": 2630.2,
+    "end": 2634.04,
+    "text": "then h is guaranteed to have an independent set of size k and you're done."
+  },
+  {
+    "start": 2635.56,
+    "end": 2641.96,
+    "text": "So now you are stuck with what happens inside j or the closed neighborhood of s-union t."
+  },
+  {
+    "start": 2642.6,
+    "end": 2649.88,
+    "text": "And it turns out there, if you have c3c for freeness, the only thing you need on top of that"
+  },
+  {
+    "start": 2649.96,
+    "end": 2654.12,
+    "text": "to guarantee a yes instance is a vertex of degree at least 3k."
+  },
+  {
+    "start": 2656.6,
+    "end": 2664.92,
+    "text": "So if you have c3c for freeness inside j and the vertex of degree 3k, then again you get a yes instance."
+  },
+  {
+    "start": 2665.6400000000003,
+    "end": 2674.84,
+    "text": "So let me prove those two statements separately because they will be basically what we need for the"
+  },
+  {
+    "start": 2675.0,
+    "end": 2685.2400000000002,
+    "text": "final theorem. So the first lemma as I told you, if h is epsilon sparse and has more than"
+  },
+  {
+    "start": 2685.2400000000002,
+    "end": 2690.92,
+    "text": "this many vertices, then it's a yes instance because you have a case size independent set in h."
+  },
+  {
+    "start": 2691.56,
+    "end": 2697.8,
+    "text": "The idea of this proof is simple. It's a counting argument. And what you need to do basically"
+  },
+  {
+    "start": 2697.88,
+    "end": 2702.6800000000003,
+    "text": "first is to show that h must contain a vertex of degree less than and over k."
+  },
+  {
+    "start": 2703.88,
+    "end": 2709.32,
+    "text": "And then basically you apply the standard greedy packing algorithm for constructing an independent set"
+  },
+  {
+    "start": 2709.32,
+    "end": 2715.7200000000003,
+    "text": "of size k. And the reason you show that the way you show that h has a vertex of degree less than"
+  },
+  {
+    "start": 2715.7200000000003,
+    "end": 2723.0,
+    "text": "and over k is again standard counting argument and the handshaking lemma. So if the minimum degree"
+  },
+  {
+    "start": 2723.16,
+    "end": 2728.84,
+    "text": "in h was at least n over k, then the number of edges would be at least n squared over 2k,"
+  },
+  {
+    "start": 2729.48,
+    "end": 2737.4,
+    "text": "which will only happen in an epsilon sparse graph when n is less than or equal 2k to the power 1 over s."
+  },
+  {
+    "start": 2739.8,
+    "end": 2743.16,
+    "text": "And the rest of the proof is basically an induction on k."
+  },
+  {
+    "start": 2745.24,
+    "end": 2750.2,
+    "text": "Okay, and so that shows you that when you do have an epsilon sparse graph with more than"
+  },
+  {
+    "start": 2750.8399999999997,
+    "end": 2758.4399999999996,
+    "text": "this many vertices, then we have a yes instance. All right, so how about the second part"
+  },
+  {
+    "start": 2759.24,
+    "end": 2766.12,
+    "text": "of the claim? So now what happens if we have a c3 c4 free j that has a vertex of degree 3k?"
+  },
+  {
+    "start": 2767.0,
+    "end": 2772.4399999999996,
+    "text": "Well, let's see what happens. So if we have a vertex of degree 3k and I'm going to"
+  },
+  {
+    "start": 2773.72,
+    "end": 2779.56,
+    "text": "circle it here in yellow. So how can the neighborhood of that vertex look? Well, we know that"
+  },
+  {
+    "start": 2779.56,
+    "end": 2786.6,
+    "text": "j is c3 free. So the blue edges cannot exist, which means that the neighborhood of the yellow vertex"
+  },
+  {
+    "start": 2786.6,
+    "end": 2794.92,
+    "text": "is an independent set inside j, not in the whole graph. Well, in fact, in the whole well known"
+  },
+  {
+    "start": 2794.92,
+    "end": 2802.6,
+    "text": "because we're only talking about j as a sub graph. Right, so the blue edges cannot exist,"
+  },
+  {
+    "start": 2802.6,
+    "end": 2813.72,
+    "text": "because otherwise we will get a c3 inside j. All right, so now let's look at the other vertices"
+  },
+  {
+    "start": 2813.72,
+    "end": 2821.88,
+    "text": "in s union t. The other, the second observation that you need is that any vertex other than the yellow"
+  },
+  {
+    "start": 2821.88,
+    "end": 2828.8399999999997,
+    "text": "vertex can have at most one neighbor in common with the yellow vertex. Because if you do have two"
+  },
+  {
+    "start": 2828.84,
+    "end": 2839.48,
+    "text": "neighbors in common, then you will get a c4. So now what happens if we have three k vertices"
+  },
+  {
+    "start": 2839.48,
+    "end": 2845.48,
+    "text": "in the neighborhood of the yellow vertex? Well, at most two k of them can be connected"
+  },
+  {
+    "start": 2846.6000000000004,
+    "end": 2852.36,
+    "text": "to some vertex in s union t, and you will get at least k of them, some k of them here"
+  },
+  {
+    "start": 2852.76,
+    "end": 2862.2000000000003,
+    "text": "that are only connected to the yellow vertex. And so now basically instead of using a buffer inside"
+  },
+  {
+    "start": 2862.2000000000003,
+    "end": 2870.44,
+    "text": "h, we have just found a buffer inside j, and we can use the same strategy. We can jump all the tokens"
+  },
+  {
+    "start": 2870.44,
+    "end": 2876.1200000000003,
+    "text": "here, starting of course by the yellow token, and then jump them to where they need to go."
+  },
+  {
+    "start": 2883.2400000000002,
+    "end": 2894.04,
+    "text": "So now combining those two observations together, if you will, we get the following theorem. So if"
+  },
+  {
+    "start": 2894.04,
+    "end": 2901.2400000000002,
+    "text": "h is alpha sparse, and j is c3c4 free, then the problem admits a kernel on this maneuver to c's,"
+  },
+  {
+    "start": 2902.1200000000003,
+    "end": 2907.32,
+    "text": "and it's basically a simple application of the previous two lemas. If we have more than this"
+  },
+  {
+    "start": 2907.4,
+    "end": 2914.36,
+    "text": "maneuver to c's in h, it's a trivial yes instance. If j has a vertex of degree 3k or more"
+  },
+  {
+    "start": 2914.36,
+    "end": 2919.88,
+    "text": "it's a trivial yes instance, and now you combine all of this together, we know that s union t is"
+  },
+  {
+    "start": 2919.88,
+    "end": 2926.92,
+    "text": "of size at most 2k. We know that the neighborhood of s union t is of size at most 2k times 3k,"
+  },
+  {
+    "start": 2926.92,
+    "end": 2933.0,
+    "text": "which is roughly 6k squared. And now we know that the rest of the graph has at most that maneuver to"
+  },
+  {
+    "start": 2933.0,
+    "end": 2938.12,
+    "text": "c's. So basically use some of those numbers, and you get this bound."
+  },
+  {
+    "start": 2946.44,
+    "end": 2952.28,
+    "text": "All right, so how does this theorem imply the result that I promised you to start with?"
+  },
+  {
+    "start": 2955.56,
+    "end": 2962.04,
+    "text": "So that token jumping and token sliding admit a kernel with order k squared vertices,"
+  },
+  {
+    "start": 2963.4,
+    "end": 2969.48,
+    "text": "I mean, I mean, it also holds for bipartite c4 free graphs, right? Obviously because they are c3c4 free."
+  },
+  {
+    "start": 2970.2,
+    "end": 2978.12,
+    "text": "So how do you get the kernel? Well, we know that j cannot contain more than 6k squared minus 2k"
+  },
+  {
+    "start": 2978.12,
+    "end": 2988.68,
+    "text": "vertices, and we know from another theorem from another paper that c3 free graphs with k squared"
+  },
+  {
+    "start": 2988.68,
+    "end": 2994.9199999999996,
+    "text": "over log k vertices must have an independent set of size at least k. And now we know that if h"
+  },
+  {
+    "start": 2994.9199999999996,
+    "end": 2998.7599999999998,
+    "text": "contains more than this many vertices, then we will get a yes instance as well."
+  },
+  {
+    "start": 3000.9199999999996,
+    "end": 3006.68,
+    "text": "Right, so it becomes an immediate consequence of the previous theorem, but the previous theorem"
+  },
+  {
+    "start": 3006.68,
+    "end": 3012.2799999999997,
+    "text": "is even more general than this corollary. So this corollary does not really use the full power of this"
+  },
+  {
+    "start": 3012.44,
+    "end": 3023.2400000000002,
+    "text": "theorem. All right, that's it. I think I'm fine. If you have questions, I will take them now."
+  },
+  {
+    "start": 3029.88,
+    "end": 3035.2400000000002,
+    "text": "So it was 55 minutes, right, for the talk. I did not go under the talk."
+  },
+  {
+    "start": 3035.3199999999997,
+    "end": 3039.16,
+    "text": "It's fine. We usually allow plus minus 10 minutes. That's all right."
+  },
+  {
+    "start": 3042.4399999999996,
+    "end": 3051.16,
+    "text": "So I have a question about token sliding. Yes. So how crucial, what happens if one does not restrict"
+  },
+  {
+    "start": 3051.7999999999997,
+    "end": 3057.16,
+    "text": "the independent sets during the configuration to be not of the same size,"
+  },
+  {
+    "start": 3057.8799999999997,
+    "end": 3062.68,
+    "text": "is that is that very critical for the difficulty or the easiness of the problem?"
+  },
+  {
+    "start": 3063.64,
+    "end": 3068.6,
+    "text": "Well, you have to be careful how you define that because in token sliding,"
+  },
+  {
+    "start": 3069.56,
+    "end": 3075.72,
+    "text": "tokens cannot leave the graph. That's correct, but the independent set sequence,"
+  },
+  {
+    "start": 3075.72,
+    "end": 3078.2799999999997,
+    "text": "all the independent sets have to be the same size, right?"
+  },
+  {
+    "start": 3079.48,
+    "end": 3084.12,
+    "text": "If not some token disappeared at some point, and I'm not sure how it disappeared."
+  },
+  {
+    "start": 3086.44,
+    "end": 3091.72,
+    "text": "Right, because you start with something of size k, and you're going to something of size k,"
+  },
+  {
+    "start": 3091.7999999999997,
+    "end": 3100.04,
+    "text": "you cannot leave the graph unless you define it in some way. So you will remain of size k throughout."
+  },
+  {
+    "start": 3101.16,
+    "end": 3106.12,
+    "text": "But you can become slightly larger in k. But where does the new token come from?"
+  },
+  {
+    "start": 3109.08,
+    "end": 3115.16,
+    "text": "So there is a third rule that I did not tell you about, which is called token addition and removal."
+  },
+  {
+    "start": 3116.04,
+    "end": 3123.56,
+    "text": "Under that rule, we actually allow you to remove vertices and adversities as long as you remain"
+  },
+  {
+    "start": 3123.56,
+    "end": 3132.2,
+    "text": "an independent set of size at least k. Does that answer your question?"
+  },
+  {
+    "start": 3132.2,
+    "end": 3139.24,
+    "text": "Yeah, yeah, yeah, yeah. But in fact, it was shown that it was shown that"
+  },
+  {
+    "start": 3139.7999999999997,
+    "end": 3143.7999999999997,
+    "text": "so addition and removal is equivalent to token jumping."
+  },
+  {
+    "start": 3145.9599999999996,
+    "end": 3150.6,
+    "text": "But it doesn't, it never makes sense to add more tokens to your graph if you don't need them."
+  },
+  {
+    "start": 3154.4399999999996,
+    "end": 3157.3999999999996,
+    "text": "You're only making your life harder into it if he's speaking."
+  },
+  {
+    "start": 3161.08,
+    "end": 3163.8799999999997,
+    "text": "So the other question that I had is, I mean, I heard, I,"
+  },
+  {
+    "start": 3164.76,
+    "end": 3174.6,
+    "text": "I, so is it possible to view this whole problem on an exponential size graph where every vertex"
+  },
+  {
+    "start": 3175.32,
+    "end": 3184.04,
+    "text": "corresponds to an independent set in the original graph. And then you have edges between two vertices,"
+  },
+  {
+    "start": 3184.92,
+    "end": 3188.92,
+    "text": "if there is an edge between two vertices of the independent set. And now you are doing a"
+  },
+  {
+    "start": 3188.92,
+    "end": 3194.04,
+    "text": "reachability question. Is that a meaningful way to think about this?"
+  },
+  {
+    "start": 3194.04,
+    "end": 3199.96,
+    "text": "But that's exactly what we're doing. But, but so the way you define your adjacency, I think,"
+  },
+  {
+    "start": 3199.96,
+    "end": 3205.64,
+    "text": "so you mean you define, you make two independent sets adjacent if one can be reached from the other via"
+  },
+  {
+    "start": 3205.64,
+    "end": 3210.52,
+    "text": "a single slide or a single joint. Exactly. Yeah, one edge here. There is one pair, you and B,"
+  },
+  {
+    "start": 3210.52,
+    "end": 3214.44,
+    "text": "which is adjacent. But that's, but that's exactly what we're doing."
+  },
+  {
+    "start": 3214.44,
+    "end": 3220.76,
+    "text": "Okay, okay. Yeah. Right? I mean, if you, because we're looking at algorithms here,"
+  },
+  {
+    "start": 3220.76,
+    "end": 3226.76,
+    "text": "we kind of forget the structural picture behind it. But this algorithm is finding a path in this graph"
+  },
+  {
+    "start": 3226.76,
+    "end": 3232.68,
+    "text": "that you're describing. Yeah, yeah, that's it. And what we're saying is you can do it in FBT time"
+  },
+  {
+    "start": 3233.4,
+    "end": 3235.8,
+    "text": "or not, depending on the problem we're talking about."
+  },
+  {
+    "start": 3245.4,
+    "end": 3249.56,
+    "text": "Hi, Amir. Hi. Hi. Hi. Hi. Hi. Hi. Hi. Hi. Hi."
+  },
+  {
+    "start": 3250.6,
+    "end": 3258.44,
+    "text": "Yeah, I'm good. So I had a question. So, do problems remain equally hard if we bound the,"
+  },
+  {
+    "start": 3258.44,
+    "end": 3264.76,
+    "text": "if we have a restriction on the number of times, we can move the token to a particular vertex."
+  },
+  {
+    "start": 3268.2000000000003,
+    "end": 3271.96,
+    "text": "The number of times you can move a token to a particular vertex."
+  },
+  {
+    "start": 3272.44,
+    "end": 3276.44,
+    "text": "I like it. There are a lot of times the tokens can be moved to a vertex."
+  },
+  {
+    "start": 3278.44,
+    "end": 3284.52,
+    "text": "Well, that's definitely going to change the complexity in, in, at least intuitively speaking,"
+  },
+  {
+    "start": 3284.52,
+    "end": 3289.8,
+    "text": "right? Because now you're saying maybe it will, if you're bounding that by a constant,"
+  },
+  {
+    "start": 3289.8,
+    "end": 3294.92,
+    "text": "then you might be saying that I'm not allowing exponentially large sequences anymore."
+  },
+  {
+    "start": 3295.48,
+    "end": 3301.2400000000002,
+    "text": "But in terms of exactly how the complexity changes, I don't have answers. I think it's a very"
+  },
+  {
+    "start": 3301.24,
+    "end": 3309.7999999999997,
+    "text": "nice question to pose. Even in terms of a non-parameterized complexity, standard complexity, I think"
+  },
+  {
+    "start": 3309.7999999999997,
+    "end": 3315.56,
+    "text": "that that would be a very interesting question because it will definitely affect the behavior."
+  },
+  {
+    "start": 3315.56,
+    "end": 3322.7599999999998,
+    "text": "I'm not sure exactly how yet. I don't know of any results that ask this particular question."
+  },
+  {
+    "start": 3323.8799999999997,
+    "end": 3329.3199999999997,
+    "text": "Okay. So I had one more question in the W hardness result that you presented. So,"
+  },
+  {
+    "start": 3329.96,
+    "end": 3338.1200000000003,
+    "text": "do you know what is the length of the, the length of the changes, actually the number of changes"
+  },
+  {
+    "start": 3338.1200000000003,
+    "end": 3346.76,
+    "text": "or flips that you make in your independence? This is just, yes, yes, yes, we do. So here the number"
+  },
+  {
+    "start": 3346.76,
+    "end": 3351.2400000000002,
+    "text": "of changes is going to be where it's basically going to be the shortest possible sequence."
+  },
+  {
+    "start": 3352.04,
+    "end": 3358.8399999999997,
+    "text": "So it's going to, it's, it's, it's basically going to be, so if you think about the simple"
+  },
+  {
+    "start": 3358.8399999999997,
+    "end": 3367.16,
+    "text": "construction, this one, it's basically literally going to be these guys are going to move here."
+  },
+  {
+    "start": 3367.9599999999996,
+    "end": 3373.4799999999996,
+    "text": "So each is going to cost me one slide and then they're all going to, and now this guy is going to"
+  },
+  {
+    "start": 3373.4799999999996,
+    "end": 3381.08,
+    "text": "move here and now I will pay one slide for each one here. Now this is the simplified version of"
+  },
+  {
+    "start": 3381.08,
+    "end": 3386.2799999999997,
+    "text": "it. Once you go to the complete version of it, you have some extra slides within the path,"
+  },
+  {
+    "start": 3386.2799999999997,
+    "end": 3395.88,
+    "text": "but you can also count those. Okay. So, but does this mean that, so does this mean that at a"
+  },
+  {
+    "start": 3395.88,
+    "end": 3404.7599999999998,
+    "text": "particular vertex, we're placing the token at most once? In this case, yes. Okay. In this case,"
+  },
+  {
+    "start": 3404.92,
+    "end": 3411.8,
+    "text": "yes. Okay. So this problem should be hard even if we bound the number of times tokens can be moved"
+  },
+  {
+    "start": 3411.8,
+    "end": 3422.76,
+    "text": "to a vertex, right? Yes. Okay. Yes. So here in this case, yes. Absolutely. Okay. Thanks."
+  },
+  {
+    "start": 3424.44,
+    "end": 3432.36,
+    "text": "So, Akansha, I have a remark about your question. So if a vertex, if a vertex cannot get"
+  },
+  {
+    "start": 3432.36,
+    "end": 3438.1200000000003,
+    "text": "a token twice, then it somehow seems to be selecting disjoint independent sets,"
+  },
+  {
+    "start": 3440.84,
+    "end": 3445.56,
+    "text": "a sequence of them and that may have some bearing on coloring. Just a top level."
+  },
+  {
+    "start": 3449.88,
+    "end": 3455.7200000000003,
+    "text": "So actually for the list, the W hardness case that I'm going to present it, it is exactly the"
+  },
+  {
+    "start": 3455.72,
+    "end": 3461.3999999999996,
+    "text": "case, right? So we are not allowed to move the token like twice on the same vertex."
+  },
+  {
+    "start": 3463.3199999999997,
+    "end": 3469.3999999999996,
+    "text": "Yeah. So I didn't get your point of being, so getting this disjoint independence, it's actually"
+  },
+  {
+    "start": 3470.2,
+    "end": 3475.16,
+    "text": "because if you say, if you think of it from my, the way I thought about it, right, that you're"
+  },
+  {
+    "start": 3475.16,
+    "end": 3480.04,
+    "text": "actually trying to find a path in a large graph where every vertex corresponds to an independent"
+  },
+  {
+    "start": 3480.68,
+    "end": 3488.68,
+    "text": "set and you move from one independent set to another. So we can only move from one independent set to"
+  },
+  {
+    "start": 3488.68,
+    "end": 3497.72,
+    "text": "the other if the change is like in case of tokens sliding, it's one probably. Yeah."
+  },
+  {
+    "start": 3502.2,
+    "end": 3509.48,
+    "text": "So it looks to be that you're asking for a collection of independent sets which are vertex"
+  },
+  {
+    "start": 3509.48,
+    "end": 3513.96,
+    "text": "disjoint. If the token sequence of independent sets which are vertex disjoint."
+  },
+  {
+    "start": 3514.92,
+    "end": 3521.32,
+    "text": "Yeah. So if I may, I think I think, yeah, a conscious question would be more relevant in a place"
+  },
+  {
+    "start": 3521.32,
+    "end": 3527.64,
+    "text": "where we don't have a monotone sequence, meaning a sequence. So we need a version of the problem"
+  },
+  {
+    "start": 3527.64,
+    "end": 3531.96,
+    "text": "or some cases of the problem where a vertex has to be visited multiple times"
+  },
+  {
+    "start": 3533.56,
+    "end": 3539.08,
+    "text": "to find solutions and that is known to be the case for some versions or some statements of the"
+  },
+  {
+    "start": 3539.08,
+    "end": 3545.16,
+    "text": "problem. And in fact, the conscious also, this was the crucial difference between piece-based"
+  },
+  {
+    "start": 3545.16,
+    "end": 3552.12,
+    "text": "completeness and NP completeness of sliding versus jumping in bipartite graphs. So it was because"
+  },
+  {
+    "start": 3552.12,
+    "end": 3559.0,
+    "text": "we were able to show that no vertex will be visited more than once. Okay. And the other problem."
+  },
+  {
+    "start": 3559.0,
+    "end": 3563.96,
+    "text": "So so that's why it's definitely an interesting question to pose, but you have to be careful in what"
+  },
+  {
+    "start": 3563.96,
+    "end": 3573.64,
+    "text": "context you pose it. Great. I don't know if that kind of settles, answers your question."
+  },
+  {
+    "start": 3574.52,
+    "end": 3579.16,
+    "text": "Yes, yes, it does. All right. Thanks. You're welcome."
+  },
+  {
+    "start": 3587.0,
+    "end": 3588.04,
+    "text": "Any more questions?"
+  },
+  {
+    "start": 3594.2,
+    "end": 3594.46,
+    "text": "Yes."
+  },
+  {
+    "start": 3594.46,
+    "end": 3620.46,
+    "text": "I guess not."
+  },
+  {
+    "start": 3620.46,
+    "end": 3623.46,
+    "text": "I don't think that I'm going to go show."
+  },
+  {
+    "start": 3623.46,
+    "end": 3634.46,
+    "text": "So I will just once again announce the parameterized and go to them 301 workshop, which is going to happen in December in the link has been posted once again in the chat."
+  },
+  {
+    "start": 3634.46,
+    "end": 3638.46,
+    "text": "Some advanced topics in parameterized complexity will be discussed."
+  },
+  {
+    "start": 3638.46,
+    "end": 3643.46,
+    "text": "Those interested can have a look and register for it."
+  },
+  {
+    "start": 3643.46,
+    "end": 3648.46,
+    "text": "And yeah, if there are some more questions, please ask away."
+  },
+  {
+    "start": 3650.46,
+    "end": 3679.46,
+    "text": "So anyone can register for the school."
+  },
+  {
+    "start": 3679.46,
+    "end": 3682.46,
+    "text": "Yes, he's anyone can."
+  },
+  {
+    "start": 3682.46,
+    "end": 3688.46,
+    "text": "Yeah, it's free and it's online and yeah, it's open to everyone."
+  },
+  {
+    "start": 3688.46,
+    "end": 3690.46,
+    "text": "So I can share with my students as well."
+  },
+  {
+    "start": 3690.46,
+    "end": 3692.46,
+    "text": "Of course, of course, please do. Yeah, that will be good."
+  },
+  {
+    "start": 3692.46,
+    "end": 3697.46,
+    "text": "And we are doing some basic understanding of parameterized algorithms."
+  },
+  {
+    "start": 3697.46,
+    "end": 3706.46,
+    "text": "But we have already shared a link on the page where students can go and go through some previous lectures in parameterized algorithms."
+  },
+  {
+    "start": 3706.46,
+    "end": 3717.46,
+    "text": "If they wish to just brace up or revise stuff."
+  },
+  {
+    "start": 3717.46,
+    "end": 3724.46,
+    "text": "All right, so I guess, okay, I don't think there are any more questions."
+  },
+  {
+    "start": 3724.46,
+    "end": 3726.46,
+    "text": "So I give this a good time to wrap up."
+  },
+  {
+    "start": 3726.46,
+    "end": 3731.46,
+    "text": "So thank you once in a professional summit or for agreeing to give the talk."
+  },
+  {
+    "start": 3731.46,
+    "end": 3741.46,
+    "text": "It was really nice to have you and just really good to have something different than what we usually hear in every parent race context, it took at least most of them."
+  },
+  {
+    "start": 3741.46,
+    "end": 3746.46,
+    "text": "So and yeah, these are really interesting problems to think of one."
+  },
+  {
+    "start": 3746.46,
+    "end": 3749.46,
+    "text": "And thank you to the audience for being with us."
+  },
+  {
+    "start": 3749.46,
+    "end": 3752.46,
+    "text": "And that's it for today's wrap up. See you all next week."
+  },
+  {
+    "start": 3752.46,
+    "end": 3754.46,
+    "text": "Thank you. Bye."
+  },
+  {
+    "start": 3754.46,
+    "end": 3755.46,
+    "text": "Thank you. Bye."
+  }
+]

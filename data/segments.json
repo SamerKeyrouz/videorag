@@ -1,0 +1,1634 @@
+[
+  {
+    "start": 0.0,
+    "end": 10.0,
+    "text": "So hello everyone, welcome to the PC Seminar. Today we have this professor Amir Mohad from American University of Beirut and he'll be talking on the GERT and Parametri's complex",
+    "image_path": "../data/keyframes\\frame_5.jpg"
+  },
+  {
+    "start": 13.02,
+    "end": 23.02,
+    "text": "at your token sliding and token jumping. Thank you for joining us professor, over to you now. Thank you, Prasiva. Thank you for having me. It's a real pleasure to be here.",
+    "image_path": "../data/keyframes\\frame_20.jpg"
+  },
+  {
+    "start": 26.04,
+    "end": 36.04,
+    "text": "So all right, let's jump right into it. So since I did not really know the audience too well, I made the assumption that many of you maybe have not seen this area of combinatorial",
+    "image_path": "../data/keyframes\\frame_30.jpg"
+  },
+  {
+    "start": 40.0,
+    "end": 50.0,
+    "text": "reconfiguration problems. So I decided what I'm going to do is I'm going to give a gentle introduction to the area just to show you how many exciting problems and open problems",
+    "image_path": "../data/keyframes\\frame_45.jpg"
+  },
+  {
+    "start": 51.48,
+    "end": 61.48,
+    "text": "are there. And then I will talk more about token jumping and token sliding, specifically what we know about them, what we knew about them before we started working on this project,",
+    "image_path": "../data/keyframes\\frame_55.jpg"
+  },
+  {
+    "start": 63.96,
+    "end": 73.96,
+    "text": "what we managed to discover and the tons of questions that remain to be answered. Right, and it's a really, I mean the questions are so nice to state, so easy to state, and they",
+    "image_path": "../data/keyframes\\frame_70.jpg"
+  },
+  {
+    "start": 77.4,
+    "end": 87.4,
+    "text": "are accessible really to researchers at any level, which is one of the reasons why I enjoy working on these problems. So hopefully you'll get to enjoy them too. So before I start, I should point",
+    "image_path": "../data/keyframes\\frame_80.jpg"
+  },
+  {
+    "start": 92.12,
+    "end": 102.12,
+    "text": "out that this is joint work that started back in the combinatorial reconfiguration workshop almost two years ago. And it's joint work with Valentine Barce, Nicolabusche, Le Mandalard,",
+    "image_path": "../data/keyframes\\frame_95.jpg"
+  },
+  {
+    "start": 106.36,
+    "end": 116.36,
+    "text": "and Karl Lomar, who is my master's student. All right, so the outline of the talk, it's going",
+    "image_path": "../data/keyframes\\frame_110.jpg"
+  },
+  {
+    "start": 116.36,
+    "end": 126.36,
+    "text": "to be in four sections. I will give a gentle introduction to combinatorial reconfiguration, because I know many of you might not have seen such problems. Then I will talk about token jumping",
+    "image_path": "../data/keyframes\\frame_120.jpg"
+  },
+  {
+    "start": 131.08,
+    "end": 141.08,
+    "text": "and token sliding, what we know about them in terms of classical complexity or one dimensional complexity. Then I'll talk about the paramjazz complexity of these two problems and what we know",
+    "image_path": "../data/keyframes\\frame_135.jpg"
+  },
+  {
+    "start": 143.08,
+    "end": 153.08,
+    "text": "as of today, as we speak. And what are the problems that remain to be solved? And then the last part of the lecture is where I will put some of the technical stuff to show you to give you an idea",
+    "image_path": "../data/keyframes\\frame_150.jpg"
+  },
+  {
+    "start": 155.48,
+    "end": 165.48,
+    "text": "about how we prove things when we deal with such problems and where are the difficulties and what kind of techniques have been developed. So I tried to keep the technical part as light as",
+    "image_path": "../data/keyframes\\frame_160.jpg"
+  },
+  {
+    "start": 166.68,
+    "end": 176.68,
+    "text": "I could so that really, I mean, I can focus on the big picture and the questions to be asked and answered. So if you have any questions along the way, please feel free to interrupt me either",
+    "image_path": "../data/keyframes\\frame_170.jpg"
+  },
+  {
+    "start": 180.2,
+    "end": 190.2,
+    "text": "in the chat or by unmuting yourselves. So don't worry about leaving the questions till the end, you can interrupt me whenever you feel whenever I say something that doesn't make sense.",
+    "image_path": "../data/keyframes\\frame_185.jpg"
+  },
+  {
+    "start": 193.08,
+    "end": 203.08,
+    "text": "Hopefully that won't happen too often. All right, so what is combinatorial configuration? So the best way I think to introduce is with a familiar example, which is one player games and the most common one",
+    "image_path": "../data/keyframes\\frame_200.jpg"
+  },
+  {
+    "start": 208.44,
+    "end": 218.44,
+    "text": "that we use is the 15 puzzle game. So for those of you who don't know the 15 puzzle game, so you're given like a 4x4 grid and you have one empty square and basically you have all the remaining 15",
+    "image_path": "../data/keyframes\\frame_215.jpg"
+  },
+  {
+    "start": 222.6,
+    "end": 232.6,
+    "text": "squares are numbered from 1 to 15 and they come in some ordering and your job is to basically move the squares around so that all the numbers become ordered. So it's a vital. So they have to be",
+    "image_path": "../data/keyframes\\frame_230.jpg"
+  },
+  {
+    "start": 235.88,
+    "end": 245.88,
+    "text": "ordered this way. So if you notice in this figure, the only problem is that 14 and 15 are reversed. But the only moves that you're allowed to do is to basically move a number into the empty square.",
+    "image_path": "../data/keyframes\\frame_240.jpg"
+  },
+  {
+    "start": 251.48,
+    "end": 261.48,
+    "text": "And basically you have to do a sequence of moves so that you get all of the numbers in order. And for those of you who know this game, this example that I have on the slide is actually",
+    "image_path": "../data/keyframes\\frame_255.jpg"
+  },
+  {
+    "start": 264.36,
+    "end": 274.36,
+    "text": "unsolved. There is no way you can flip the order of 14 and 15 in this puzzle. And I have a link here if you want to actually play the puzzle online, which is pretty fun.",
+    "image_path": "../data/keyframes\\frame_270.jpg"
+  },
+  {
+    "start": 277.32,
+    "end": 287.32,
+    "text": "So why do I start my talk by talking about 15 puzzle? It's because it's really, I mean, the way you solve the 15 puzzle tells you a lot about the area of combinatorial configuration. So the standard",
+    "image_path": "../data/keyframes\\frame_280.jpg"
+  },
+  {
+    "start": 292.12,
+    "end": 302.12,
+    "text": "way we would think about the 15 puzzle is by looking at the state space or what we call the reconfiguration graph of the 15 puzzle. So what does that graph consist of? Well, we have one vertex",
+    "image_path": "../data/keyframes\\frame_295.jpg"
+  },
+  {
+    "start": 305.8,
+    "end": 315.8,
+    "text": "or one node in this graph for each possible configuration of the puzzle. So basically each possible configuration, so it would be a possible permutation of the 15 numbers. In addition to where",
+    "image_path": "../data/keyframes\\frame_310.jpg"
+  },
+  {
+    "start": 318.6,
+    "end": 328.6,
+    "text": "you're going to put the empty square, each one of those will be a vertex and the graph. And now we connect two vertices in that graph whenever one can be reached from the other by a",
+    "image_path": "../data/keyframes\\frame_325.jpg"
+  },
+  {
+    "start": 331.4,
+    "end": 341.4,
+    "text": "single move. And what do we mean here by a single move where it's basically just moving number into the empty square. So if you look at the top node here in this graph, there are four",
+    "image_path": "../data/keyframes\\frame_335.jpg"
+  },
+  {
+    "start": 344.04,
+    "end": 354.04,
+    "text": "possibilities that you can do in one move, which we call a reconfiguration step, which is you can move nine into the empty square, you can move three into the empty square, 12 or 15. And that gives us",
+    "image_path": "../data/keyframes\\frame_350.jpg"
+  },
+  {
+    "start": 357.48,
+    "end": 367.48,
+    "text": "basically four neighbors of that vertex in the graph. Okay, and we call this whole graph, the reconfiguration graph or the state space, if you're more comfortable thinking about states, the",
+    "image_path": "../data/keyframes\\frame_360.jpg"
+  },
+  {
+    "start": 369.4,
+    "end": 379.4,
+    "text": "states of the game. So now given this graph, the reconfiguration graph, there are tons of very interesting questions that you can ask about it. There are structural questions and there are",
+    "image_path": "../data/keyframes\\frame_375.jpg"
+  },
+  {
+    "start": 382.28,
+    "end": 392.28,
+    "text": "algorithmic questions. And these are typically the types of questions that we're interested in in this area of combinatorially configuration. So a couple of examples about structural",
+    "image_path": "../data/keyframes\\frame_385.jpg"
+  },
+  {
+    "start": 395.64,
+    "end": 405.64,
+    "text": "questions would be, well, the simplest one would be how big is this reconfiguration graph, right, how many vertices or how many edges. And that's usually not a very hard question to answer",
+    "image_path": "../data/keyframes\\frame_400.jpg"
+  },
+  {
+    "start": 408.52,
+    "end": 418.52,
+    "text": "in terms of upper and lower ones. More interestingly, you can ask, is this reconfiguration graph connected, right, or is can I reach any state starting from any other state by a sequence of legal moves?",
+    "image_path": "../data/keyframes\\frame_415.jpg"
+  },
+  {
+    "start": 423.16,
+    "end": 433.16,
+    "text": "And as I told you before, for the 15 puzzle, the reconfiguration graph is definitely not connected because there was no way to reverse 14 and 15 in the previous example that I showed you, and you can",
+    "image_path": "../data/keyframes\\frame_430.jpg"
+  },
+  {
+    "start": 435.56,
+    "end": 445.56,
+    "text": "easily prove that, by the way. So when it's not connected, another question would be how many components does I have? Is there some sort of a nice structure to the components of this graph?",
+    "image_path": "../data/keyframes\\frame_440.jpg"
+  },
+  {
+    "start": 449.0,
+    "end": 459.0,
+    "text": "And then another question would be what is the diameter of this reconfiguration graph, or of each one of its components? And that's usually a very important question to ask when you're",
+    "image_path": "../data/keyframes\\frame_455.jpg"
+  },
+  {
+    "start": 459.16,
+    "end": 469.16,
+    "text": "dealing with one player games, because this could tell you like what would be the worst possible shortest path to reach a target configuration, or to solve your game, to win your game, for example.",
+    "image_path": "../data/keyframes\\frame_465.jpg"
+  },
+  {
+    "start": 472.12,
+    "end": 482.12,
+    "text": "And in the literature, this is sometimes known as God's number, which would be the diameter of the reconfiguration graph. And these are all very interesting, very interesting structural",
+    "image_path": "../data/keyframes\\frame_475.jpg"
+  },
+  {
+    "start": 483.88,
+    "end": 493.88,
+    "text": "questions to ask about this reconfiguration graph. Now on the algorithmic side, or the computational side, there's the obvious question of if I'm given a starting state and some ending state,",
+    "image_path": "../data/keyframes\\frame_490.jpg"
+  },
+  {
+    "start": 497.08,
+    "end": 507.08,
+    "text": "or target state, like in the case of the puzzle game, that I am given some starting state, and we know what the goal state is. So here, one decision problem would be to answer the",
+    "image_path": "../data/keyframes\\frame_500.jpg"
+  },
+  {
+    "start": 507.72,
+    "end": 517.72,
+    "text": "question whether it's possible to get to the target state, starting from some initial state, that is also given to me. So you can decide to solve this problem either as a decision problem,",
+    "image_path": "../data/keyframes\\frame_515.jpg"
+  },
+  {
+    "start": 519.16,
+    "end": 529.16,
+    "text": "or as a search problem, which would give you the actual sequence of steps that will take you from state to the target state. Other interesting computational problems, is it always possible to go",
+    "image_path": "../data/keyframes\\frame_525.jpg"
+  },
+  {
+    "start": 534.36,
+    "end": 544.36,
+    "text": "from one configuration to any other, and this is basically also related to the structural question about connected components. And the last question that I would mention, which is also interesting,",
+    "image_path": "../data/keyframes\\frame_540.jpg"
+  },
+  {
+    "start": 547.24,
+    "end": 557.24,
+    "text": "is how fast can you go from one configuration to another, meaning can you do it in at most case steps? There is a question I should wait, or no. All right. So think about all of these questions",
+    "image_path": "../data/keyframes\\frame_550.jpg"
+  },
+  {
+    "start": 570.12,
+    "end": 580.12,
+    "text": "that we paused using the simple 15 puzzle game, and now we're going to look at a lot of other possible problems where the same configuration graph can be extracted, and we can ask the same",
+    "image_path": "../data/keyframes\\frame_575.jpg"
+  },
+  {
+    "start": 585.0,
+    "end": 595.0,
+    "text": "set of questions. So all of you here are familiar with the case sad problem. So you're given a Boolean formula, and you want to know if you can satisfy this formula by assigning values to the",
+    "image_path": "../data/keyframes\\frame_590.jpg"
+  },
+  {
+    "start": 597.96,
+    "end": 607.96,
+    "text": "variables, and we know that this is NP complete for K greater than or equal to three. So now how can you transform this into a reconfiguration problem? Well, it's very simple. So now you're given the",
+    "image_path": "../data/keyframes\\frame_605.jpg"
+  },
+  {
+    "start": 609.56,
+    "end": 619.56,
+    "text": "formula, and you're given two satisfying assignments. So you can think of those satisfying assignments as bit vectors. And so now the question that you can ask is, can I go from the first satisfying",
+    "image_path": "../data/keyframes\\frame_615.jpg"
+  },
+  {
+    "start": 623.88,
+    "end": 633.88,
+    "text": "assignment as to the next one? By basically flipping one bit at a time, under the condition that I remain a satisfying assignment at all times. And notice that without this condition, the problem is",
+    "image_path": "../data/keyframes\\frame_630.jpg"
+  },
+  {
+    "start": 638.84,
+    "end": 648.84,
+    "text": "trivial. So you can basically just flip the bits however you like and reach S from T or T from S. But once you add this constraint of you should remain a satisfying assignment, the problem becomes",
+    "image_path": "../data/keyframes\\frame_645.jpg"
+  },
+  {
+    "start": 654.2,
+    "end": 664.2,
+    "text": "way more interesting. And you can think of this problem again as walking into solution space of the given formula of all the satisfying assignment of the formula.",
+    "image_path": "../data/keyframes\\frame_660.jpg"
+  },
+  {
+    "start": 669.0,
+    "end": 679.0,
+    "text": "All right, so that's the satiric configuration problem. Let's look at another example. Graph coloring. We all know it. We all love it. You're given a graph and some integer K, and you are",
+    "image_path": "../data/keyframes\\frame_675.jpg"
+  },
+  {
+    "start": 683.56,
+    "end": 693.56,
+    "text": "asked whether you can properly k color the graph G. And we know again that this is NP complete for K greater than or equal to three. How do you transform that into a reconfiguration problem? Well,",
+    "image_path": "../data/keyframes\\frame_690.jpg"
+  },
+  {
+    "start": 695.24,
+    "end": 705.24,
+    "text": "now you're given a graph. You're given two colorings of the graph alpha and beta. And the question is, can you recolor alpha to get the to beta? But you need to recolor one vertex at a time,",
+    "image_path": "../data/keyframes\\frame_700.jpg"
+  },
+  {
+    "start": 709.24,
+    "end": 719.24,
+    "text": "and you need to remain a proper K coloring throughout. Same idea again leads us to this notion of the reconfiguration space where we are looking at the K colorings of the graph and how they are",
+    "image_path": "../data/keyframes\\frame_715.jpg"
+  },
+  {
+    "start": 722.68,
+    "end": 732.68,
+    "text": "connected under this adjacent simulation that we define, which is a single vertex recall. The final example that I will mention, which will be basically what we will focus on in the rest",
+    "image_path": "../data/keyframes\\frame_730.jpg"
+  },
+  {
+    "start": 737.16,
+    "end": 747.16,
+    "text": "of the talk is token placement. I call it, but as you will all guess, this is the famous independent set problem. But we will look at it as a token placement problem because it will be",
+    "image_path": "../data/keyframes\\frame_740.jpg"
+  },
+  {
+    "start": 748.76,
+    "end": 758.76,
+    "text": "more useful for the rest of the talk. So you're given a graph G and an integer K. And the question is, can you place k tokens on your graph, k black tokens so that no two of these tokens share an",
+    "image_path": "../data/keyframes\\frame_755.jpg"
+  },
+  {
+    "start": 759.96,
+    "end": 769.96,
+    "text": "edge? And of course, we all know that this is an NP complete problem. So how can you transform this problem into a reconfiguration problem? Again, now I'm giving a graph two independent sets of",
+    "image_path": "../data/keyframes\\frame_765.jpg"
+  },
+  {
+    "start": 772.04,
+    "end": 782.04,
+    "text": "the graph, each of size k. And the question is, can I go from one independent set to the other under what rule? So here defining the rule for independent set, how can I go between consecutive",
+    "image_path": "../data/keyframes\\frame_775.jpg"
+  },
+  {
+    "start": 787.48,
+    "end": 797.48,
+    "text": "independent sets becomes a little bit less obvious. And there are two main strategies that people have attempted. So the first rule is what we call token jumping. So you are basically allowed",
+    "image_path": "../data/keyframes\\frame_790.jpg"
+  },
+  {
+    "start": 800.84,
+    "end": 810.84,
+    "text": "to take any token on your graph and jump it to any other vertex on the graph, assuming that it doesn't have a token and that you maintain an independent set at all times. So for example, in this",
+    "image_path": "../data/keyframes\\frame_805.jpg"
+  },
+  {
+    "start": 815.08,
+    "end": 825.08,
+    "text": "example that I have here, it would be perfectly okay to take this token here and jump it to this vertex here. Or I could also take this token here and jump it to this vertex here.",
+    "image_path": "../data/keyframes\\frame_820.jpg"
+  },
+  {
+    "start": 830.92,
+    "end": 840.92,
+    "text": "So that, no, actually that would violate the independence. So you can jump to any other vertex as long as you maintain independence. And we call that the token jumping rule. The other rule is",
+    "image_path": "../data/keyframes\\frame_835.jpg"
+  },
+  {
+    "start": 843.64,
+    "end": 853.64,
+    "text": "basically token sliding. So in this case, we only allow a token to slide along edges of the graph. So a token can only move to adjacent vertex, assuming of course this does not violate independence.",
+    "image_path": "../data/keyframes\\frame_850.jpg"
+  },
+  {
+    "start": 860.92,
+    "end": 870.92,
+    "text": "So now we have two different reconfiguration graphs we can think about. We can think about the reconfiguration graph under the token jumping adjacency. And we can think about the reconfiguration",
+    "image_path": "../data/keyframes\\frame_865.jpg"
+  },
+  {
+    "start": 871.24,
+    "end": 881.24,
+    "text": "graph under the token sliding adjacency. And we're going to talk about these two different problems because they do actually behave quite differently and they produce quite interesting results. Like the",
+    "image_path": "../data/keyframes\\frame_875.jpg"
+  },
+  {
+    "start": 884.68,
+    "end": 894.68,
+    "text": "difference between the two, we don't fully understand yet, but we kind of know that token sliding can be harder than token jumping. But there's still a lot of questions to be answered.",
+    "image_path": "../data/keyframes\\frame_890.jpg"
+  },
+  {
+    "start": 898.6,
+    "end": 908.6,
+    "text": "All right, so some of you might be asking why do we care about studying such problems? There's a lot of motivations out there. I mean, sometimes I would say you don't need motivation.",
+    "image_path": "../data/keyframes\\frame_905.jpg"
+  },
+  {
+    "start": 913.32,
+    "end": 923.32,
+    "text": "They're interesting. There's a lot of open questions that we need to answer. But you can also think about reconfiguration problems as another way of modeling real world algorithmic problems.",
+    "image_path": "../data/keyframes\\frame_920.jpg"
+  },
+  {
+    "start": 924.44,
+    "end": 934.44,
+    "text": "Because you usually never start from scratch. When you're trying to solve real world problems, you usually start from something and you're trying to prove it or make it better or change it to",
+    "image_path": "../data/keyframes\\frame_930.jpg"
+  },
+  {
+    "start": 934.92,
+    "end": 944.92,
+    "text": "something more appropriate. Another very good application of studying these problems is that they give you a better understanding of solution spaces, which can be very important for other areas as",
+    "image_path": "../data/keyframes\\frame_940.jpg"
+  },
+  {
+    "start": 948.12,
+    "end": 958.12,
+    "text": "well. And they have been used in statistical physics, quantum computing, and complexity theory, combinatorics, and robotics, and hopefully many more applications to come. But what I would tell you",
+    "image_path": "../data/keyframes\\frame_955.jpg"
+  },
+  {
+    "start": 960.12,
+    "end": 970.12,
+    "text": "is that there are so many very interesting problems that are so easy to start thinking about without having too much background, which is why I think this is a very nice area to start working on",
+    "image_path": "../data/keyframes\\frame_965.jpg"
+  },
+  {
+    "start": 972.84,
+    "end": 982.84,
+    "text": "at any level in your research career. All right, so I'll take a break here and take questions if there are any. And then we will dive into",
+    "image_path": "../data/keyframes\\frame_980.jpg"
+  },
+  {
+    "start": 985.16,
+    "end": 995.16,
+    "text": "the token jumping and token sliding problems, what we know about them in terms of classical complexity, and what was basically the starting point for the project that led us to this paper.",
+    "image_path": "../data/keyframes\\frame_990.jpg"
+  },
+  {
+    "start": 1000.68,
+    "end": 1010.68,
+    "text": "Any questions at this point? I'm, I apologize for the small context, which I'm interrupting here. So this is just to announce for",
+    "image_path": "../data/keyframes\\frame_1005.jpg"
+  },
+  {
+    "start": 1012.28,
+    "end": 1022.28,
+    "text": "the PC 301 workshop that will be happening in December end. And this will be slightly different from the previous two workshops. First major difference, this will be online. Second is some advanced topics",
+    "image_path": "../data/keyframes\\frame_1015.jpg"
+  },
+  {
+    "start": 1025.08,
+    "end": 1035.08,
+    "text": "will be discussed. So anyone who intends to explore somewhat more complex topics in parametrize algorithms is invited to have a check. They can look at the website that has been shared on the chat.",
+    "image_path": "../data/keyframes\\frame_1030.jpg"
+  },
+  {
+    "start": 1039.96,
+    "end": 1049.96,
+    "text": "And if you wish, you can register simply by filling a form that is linked at the bottom of the webpage. So just to inform you all about it. And sorry for the interruption for this now.",
+    "image_path": "../data/keyframes\\frame_1045.jpg"
+  },
+  {
+    "start": 1051.96,
+    "end": 1061.96,
+    "text": "All right. All right. So let's start talking about token jumping, token sliding, and a little bit",
+    "image_path": "../data/keyframes\\frame_1055.jpg"
+  },
+  {
+    "start": 1063.48,
+    "end": 1073.48,
+    "text": "about classical complexity. I know everybody here knows about P and NP. So I'm not going to talk about this. Some of you might not be familiar with the PSPACE class. So just a quick note that's as much as",
+    "image_path": "../data/keyframes\\frame_1070.jpg"
+  },
+  {
+    "start": 1076.52,
+    "end": 1086.52,
+    "text": "you will need to know for this talk is that PSPACE is the set of all decision problems that can be solved using a polynomial amount of space. And the reason why I mentioned this class is because",
+    "image_path": "../data/keyframes\\frame_1080.jpg"
+  },
+  {
+    "start": 1090.52,
+    "end": 1100.52,
+    "text": "many, many, many, many, the configuration problem actually are PSPACE complete. Okay. And so, so what we know, the standard inclusion is we know that P is contained in NP,",
+    "image_path": "../data/keyframes\\frame_1095.jpg"
+  },
+  {
+    "start": 1102.44,
+    "end": 1112.44,
+    "text": "which is contained in PSPACE. But a very useful thing about PSPACE is that savage prove that it's equal to NP space. So polynomial space and non deterministic polynomial space are",
+    "image_path": "../data/keyframes\\frame_1105.jpg"
+  },
+  {
+    "start": 1114.68,
+    "end": 1124.68,
+    "text": "the same class. Basically, and that's extremely useful when you start to think about reconfiguration problems, because if you think about reconfiguration problem, where you're given some",
+    "image_path": "../data/keyframes\\frame_1120.jpg"
+  },
+  {
+    "start": 1125.8,
+    "end": 1135.8,
+    "text": "state and you want to reach the other one. So basically, you can solve that easily in non deterministic polynomial space, which basically implies that they are NP space. But actually, you can show a lot",
+    "image_path": "../data/keyframes\\frame_1130.jpg"
+  },
+  {
+    "start": 1142.44,
+    "end": 1152.44,
+    "text": "more than that. You can show that many, really many reconfiguration problems are actually PSPACE complete, which is not surprising. Right. The fact that many of these reconfiguration problems are",
+    "image_path": "../data/keyframes\\frame_1145.jpg"
+  },
+  {
+    "start": 1153.8,
+    "end": 1163.8,
+    "text": "PSPACE complete is not very surprising. Right. And then not being in NP is because they don't always have polynomial-size certificates, which also makes sense, because sometimes the number of steps",
+    "image_path": "../data/keyframes\\frame_1160.jpg"
+  },
+  {
+    "start": 1168.6,
+    "end": 1178.6,
+    "text": "that you need to take to go from one configuration to the other might very well be exponential in the graph size. But there are also some extremely surprising results. And these are some of the results,",
+    "image_path": "../data/keyframes\\frame_1175.jpg"
+  },
+  {
+    "start": 1180.6,
+    "end": 1190.6,
+    "text": "some of my favorite results in the area. So for example, you all know that coloring is NP complete even for k equals 3. However, it turns out that if you try to solve the recoloring problem",
+    "image_path": "../data/keyframes\\frame_1185.jpg"
+  },
+  {
+    "start": 1195.48,
+    "end": 1205.48,
+    "text": "for k equals 3, it's actually polynomial-time-solvable. So if I give you two, three colorings of a graph, and I ask you, is there a path between them that recolors one vertex at a time",
+    "image_path": "../data/keyframes\\frame_1200.jpg"
+  },
+  {
+    "start": 1208.44,
+    "end": 1218.44,
+    "text": "and never is and is always a valid three coloring, then this problem can be solved in polynomial-time. And the recoloring problem only becomes PSPACE complete for k equals 4 and more.",
+    "image_path": "../data/keyframes\\frame_1215.jpg"
+  },
+  {
+    "start": 1221.96,
+    "end": 1231.96,
+    "text": "Right. So that's the first surprising result. Another very surprising result is that as your all FPT experts here, I know that you're all familiar with the fact that usually when",
+    "image_path": "../data/keyframes\\frame_1225.jpg"
+  },
+  {
+    "start": 1235.0,
+    "end": 1245.0,
+    "text": "we study problems on graphs of bounded bucket width, path width, three width, they tend to become easier. It turns out that that's not really the case for reconfiguration problems, at least for",
+    "image_path": "../data/keyframes\\frame_1240.jpg"
+  },
+  {
+    "start": 1249.0,
+    "end": 1259.0,
+    "text": "token sliding and jumping, which is the two problems that are related to independent set. It turns out that those two problems remain PSPACE complete even if you have a graph of constant three width",
+    "image_path": "../data/keyframes\\frame_1255.jpg"
+  },
+  {
+    "start": 1259.88,
+    "end": 1269.88,
+    "text": "or path width or even bucket width. So a very, very, very simple graph structure still the problem remains hard.",
+    "image_path": "../data/keyframes\\frame_1265.jpg"
+  },
+  {
+    "start": 1271.16,
+    "end": 1281.16,
+    "text": "All right. And finally, the last theorem that I also like a lot shows you basically that sliding and jumping behave differently. And it was shown that if you restrict yourself to",
+    "image_path": "../data/keyframes\\frame_1275.jpg"
+  },
+  {
+    "start": 1286.2,
+    "end": 1296.2,
+    "text": "bipartite graphs where we know that max independent set can be solved in polynomial time, if you restrict yourself to those graphs, it turns out that token jumping is NP complete,",
+    "image_path": "../data/keyframes\\frame_1290.jpg"
+  },
+  {
+    "start": 1299.72,
+    "end": 1309.72,
+    "text": "whereas token sliding is PSPACE complete, which is a strange difference between the behavior",
+    "image_path": "../data/keyframes\\frame_1305.jpg"
+  },
+  {
+    "start": 1309.96,
+    "end": 1319.96,
+    "text": "of those two problems. All right. So in fact, we know a lot more about token sliding and",
+    "image_path": "../data/keyframes\\frame_1315.jpg"
+  },
+  {
+    "start": 1321.48,
+    "end": 1331.48,
+    "text": "token jumping. These problems have been at the heart of the area of combinatorial reconfiguration. They have been studied so much. And we know so much about them at least in terms of standard",
+    "image_path": "../data/keyframes\\frame_1325.jpg"
+  },
+  {
+    "start": 1333.8,
+    "end": 1343.8,
+    "text": "or classical complexity. So some of the important results for our paper that we're going to focus on",
+    "image_path": "../data/keyframes\\frame_1340.jpg"
+  },
+  {
+    "start": 1343.88,
+    "end": 1353.88,
+    "text": "is this result. So that's going to be the starting point of the results that we will discuss next when we move to parametrize complexity. So the fact that token sliding and token jumping",
+    "image_path": "../data/keyframes\\frame_1350.jpg"
+  },
+  {
+    "start": 1356.6,
+    "end": 1366.6,
+    "text": "are PSPACE complete and then NP complete respectively on bipartite graphs was the starting point of our next paper. But there are some very interesting results here that are also worth mentioning.",
+    "image_path": "../data/keyframes\\frame_1360.jpg"
+  },
+  {
+    "start": 1366.92,
+    "end": 1376.92,
+    "text": "So for example, for even whole figure half we know how to solve token jumping in polynomial time. But the complexity of independent set even remains open on this class of graphs.",
+    "image_path": "../data/keyframes\\frame_1370.jpg"
+  },
+  {
+    "start": 1379.56,
+    "end": 1389.56,
+    "text": "And the complexity of token sliding also remains open. So we don't know how to check if given two independent sets, I can slide one to the other. Can you answer that question in polynomial",
+    "image_path": "../data/keyframes\\frame_1385.jpg"
+  },
+  {
+    "start": 1391.64,
+    "end": 1401.64,
+    "text": "time for even whole free graphs? For split graphs and chordal graphs, they also behave extremely differently token sliding and token jumping. So they are token sliding is PSPACE complete on",
+    "image_path": "../data/keyframes\\frame_1395.jpg"
+  },
+  {
+    "start": 1405.64,
+    "end": 1415.64,
+    "text": "split graphs and chordal graphs while token jumping is polynomial time. And that is some of the reasons why we feel that token sliding is harder usually than token jumping. But it's not always the",
+    "image_path": "../data/keyframes\\frame_1410.jpg"
+  },
+  {
+    "start": 1419.16,
+    "end": 1429.16,
+    "text": "case. All right. So that's it for classical complexity. So now let's move on to parametrize complexity.",
+    "image_path": "../data/keyframes\\frame_1425.jpg"
+  },
+  {
+    "start": 1433.64,
+    "end": 1443.64,
+    "text": "And let's basically think about how you can parametrize those two problems token jumping and token sliding. So there's the obvious parameter would be the number of tokens. So one of the obvious",
+    "image_path": "../data/keyframes\\frame_1440.jpg"
+  },
+  {
+    "start": 1446.92,
+    "end": 1456.92,
+    "text": "parameters would be the number of tokens. So and we're going to denote that by K. Another parameter would be the length of the sequence. Like how many steps does it take to go from one independent set",
+    "image_path": "../data/keyframes\\frame_1450.jpg"
+  },
+  {
+    "start": 1459.4,
+    "end": 1469.4,
+    "text": "to the other? You can also obviously parametrize by tree width or path width or any combination of the above. When we started working on this problem, our initial aim was to basically study the",
+    "image_path": "../data/keyframes\\frame_1465.jpg"
+  },
+  {
+    "start": 1474.12,
+    "end": 1484.12,
+    "text": "parametrize complexity of token sliding and token jumping on bipartite graphs using the parameter K number of tokens. Right. Because remember, we saw that token sliding is PSPACE complete on",
+    "image_path": "../data/keyframes\\frame_1480.jpg"
+  },
+  {
+    "start": 1486.92,
+    "end": 1496.92,
+    "text": "bipartite graphs and token jumping is NP. So you were interested to see if basically this is going to give us W1 hardness for token sliding and FPTNES for token jumping. At least that was the",
+    "image_path": "../data/keyframes\\frame_1490.jpg"
+  },
+  {
+    "start": 1502.28,
+    "end": 1512.28,
+    "text": "initial hope. That's why we started working on this project. We weren't able to answer the two questions. So we were able to answer one side of the question, which is we were able to show",
+    "image_path": "../data/keyframes\\frame_1505.jpg"
+  },
+  {
+    "start": 1515.24,
+    "end": 1525.24,
+    "text": "that on bipartite graphs token sliding is in fact W1 hard. So token sliding parametrize by the number of tokens on bipartite graphs is W1 hard. We were not able to answer the question for token jumping.",
+    "image_path": "../data/keyframes\\frame_1520.jpg"
+  },
+  {
+    "start": 1533.24,
+    "end": 1543.24,
+    "text": "So that is still an open question. So having answered that question and failed on the next question, we started thinking about ways to basically simplify a little bit some of these questions.",
+    "image_path": "../data/keyframes\\frame_1540.jpg"
+  },
+  {
+    "start": 1547.96,
+    "end": 1557.96,
+    "text": "So the next thing we asked ourselves, so there are two directions where you can try and simplify. So the next thing we asked ourselves was, okay, so from bipartite graphs, how can I go to other",
+    "image_path": "../data/keyframes\\frame_1555.jpg"
+  },
+  {
+    "start": 1561.56,
+    "end": 1571.56,
+    "text": "classes of graphs and see where token jumping becomes hard or easy? And it turned out that if you basically exclude only C4 from your graph, right? And so we, because in bipartite graphs, you're",
+    "image_path": "../data/keyframes\\frame_1565.jpg"
+  },
+  {
+    "start": 1578.28,
+    "end": 1588.28,
+    "text": "excluding all odd cycles, right? So we started thinking about what kinds of cycles affect the behavior of those problems. So the first question was, what about C4 free graphs? And it turned out",
+    "image_path": "../data/keyframes\\frame_1585.jpg"
+  },
+  {
+    "start": 1593.0,
+    "end": 1603.0,
+    "text": "that both problems remained W1 hard on C4 free graphs. Now, if you exclude C3 and C4, it turns out that token jumping becomes FPT has an order K squared kernel, but for token sliding, we were not",
+    "image_path": "../data/keyframes\\frame_1600.jpg"
+  },
+  {
+    "start": 1609.56,
+    "end": 1619.56,
+    "text": "able to determine the complexity. Now, if you go to the other side of that, so what if we enforce",
+    "image_path": "../data/keyframes\\frame_1615.jpg"
+  },
+  {
+    "start": 1619.8,
+    "end": 1629.8,
+    "text": "both bipartite as well as C4 freeness? So in that case, we were able to show that both problems became FPT. Okay, and basically the bipartite bounded degree graphs was just a stepping stone to get to the",
+    "image_path": "../data/keyframes\\frame_1625.jpg"
+  },
+  {
+    "start": 1639.24,
+    "end": 1649.24,
+    "text": "bipartite C4 free graph result. So let me, let me repeat that maybe slightly more clearly. So after basically answering the first question, which was bipartite graphs, we were able to show that token",
+    "image_path": "../data/keyframes\\frame_1645.jpg"
+  },
+  {
+    "start": 1652.76,
+    "end": 1662.76,
+    "text": "sliding was W1 hard, but we were not able to determine the complexity of token jumping. So then we went to C4 free graphs and we were able to show that both problems are actually W1 hard. Then if we added",
+    "image_path": "../data/keyframes\\frame_1660.jpg"
+  },
+  {
+    "start": 1667.08,
+    "end": 1677.08,
+    "text": "one more constraint, which was C3 C4 free graphs, we got FPT and is for token jumping, but it remained open for token sliding. And on the other side of the spectrum, so if we keep bipartite and",
+    "image_path": "../data/keyframes\\frame_1670.jpg"
+  },
+  {
+    "start": 1681.16,
+    "end": 1691.16,
+    "text": "enforce the C4 freeness, we get FPT for both problems. And as a side note, this blue result is not",
+    "image_path": "../data/keyframes\\frame_1685.jpg"
+  },
+  {
+    "start": 1692.6,
+    "end": 1702.6,
+    "text": "part of our paper. This was known prior to our paper. So any questions about the results?",
+    "image_path": "../data/keyframes\\frame_1700.jpg"
+  },
+  {
+    "start": 1711.16,
+    "end": 1721.16,
+    "text": "No questions. All right, cool. So lots of open problems. The first and obvious one is, what is the",
+    "image_path": "../data/keyframes\\frame_1715.jpg"
+  },
+  {
+    "start": 1730.44,
+    "end": 1740.44,
+    "text": "pattern is a token jumping FPT parameterized by K on bipartite graphs? And that's really, I mean, that was the initial question that we set out to answer and couldn't. So that remains open.",
+    "image_path": "../data/keyframes\\frame_1735.jpg"
+  },
+  {
+    "start": 1744.92,
+    "end": 1754.92,
+    "text": "And so I will not be going over the hardness reduction for token sliding on bipartite graphs, because it's quite technical. I don't feel a talk is the right place to go over it. But",
+    "image_path": "../data/keyframes\\frame_1750.jpg"
+  },
+  {
+    "start": 1760.44,
+    "end": 1770.44,
+    "text": "if you go over the reduction, you will see that it's the two problems really behave differently. And there's that doesn't seem to be a chance to basically make the same type of reduction work for",
+    "image_path": "../data/keyframes\\frame_1765.jpg"
+  },
+  {
+    "start": 1773.32,
+    "end": 1783.32,
+    "text": "token jumping. So the second interesting open question is, how about token jumping parameterized by K on triangle free graphs? That's basically even more general than question one.",
+    "image_path": "../data/keyframes\\frame_1780.jpg"
+  },
+  {
+    "start": 1786.92,
+    "end": 1796.92,
+    "text": "Right? So, and the reason why I mentioned this question separately is because almost every reduction that I know of includes large clicks. So you need to use large clicks in your reductions. So how about",
+    "image_path": "../data/keyframes\\frame_1790.jpg"
+  },
+  {
+    "start": 1801.24,
+    "end": 1811.24,
+    "text": "if we don't allow triangle and large clicks? So can we can we can we then say something about the problem? So that's for token jumping. Now, when when you go to token sliding,",
+    "image_path": "../data/keyframes\\frame_1805.jpg"
+  },
+  {
+    "start": 1814.36,
+    "end": 1824.36,
+    "text": "so so the open problem is what happens for token sliding on graphs of girth at least five. So if they are C3 C4 free, or you can even make that a bit weaker and ask for any girth of at least P",
+    "image_path": "../data/keyframes\\frame_1820.jpg"
+  },
+  {
+    "start": 1830.28,
+    "end": 1840.28,
+    "text": "for some constant P. And for all of these questions, of course, polynomial kernels would be interesting because in our case, we do get polynomial kernels for the FB.",
+    "image_path": "../data/keyframes\\frame_1835.jpg"
+  },
+  {
+    "start": 1847.64,
+    "end": 1857.64,
+    "text": "And the polynomials are not great, but polynomial regardless. All right, so in the rest of the talk, I will try to cover some of the technical stuff. And as",
+    "image_path": "../data/keyframes\\frame_1855.jpg"
+  },
+  {
+    "start": 1864.28,
+    "end": 1874.28,
+    "text": "promised, I will try to keep it as light as possible so that I can give you some of a lot of the intuition and techniques that are used in this paper and that are generally used when dealing with",
+    "image_path": "../data/keyframes\\frame_1870.jpg"
+  },
+  {
+    "start": 1876.36,
+    "end": 1886.36,
+    "text": "reconfiguration problems. So the first result that we will go over is this W hardness on C4 free graphs. Right? For both token sliding and token jumping. It's the same reduction and and you will",
+    "image_path": "../data/keyframes\\frame_1880.jpg"
+  },
+  {
+    "start": 1890.04,
+    "end": 1900.04,
+    "text": "get both results because we will be using maximum independent sets. So if you're trying to basically do token sliding from one maximum independent set to the other, or token jumping, these two rules",
+    "image_path": "../data/keyframes\\frame_1895.jpg"
+  },
+  {
+    "start": 1905.96,
+    "end": 1915.96,
+    "text": "become equivalent, jumping becomes equivalent to sliding. So when you're dealing with maximum independent sets, these two basically rules are the same. And that's what we're going to do. But",
+    "image_path": "../data/keyframes\\frame_1910.jpg"
+  },
+  {
+    "start": 1917.32,
+    "end": 1927.32,
+    "text": "what we're going to prove actually is a stronger theorem. What we're going to prove is the following theorem. If you take any p greater than or equal to four, then both problems are W hard on C4, C5,",
+    "image_path": "../data/keyframes\\frame_1920.jpg"
+  },
+  {
+    "start": 1932.76,
+    "end": 1942.76,
+    "text": "dot dot dot up to CP free graphs, which implies of course C4 free graphs. But you can basically exclude",
+    "image_path": "../data/keyframes\\frame_1940.jpg"
+  },
+  {
+    "start": 1943.8,
+    "end": 1953.8,
+    "text": "any cycles from C4 up to CP for constant P and the problems will remain W1 hard.",
+    "image_path": "../data/keyframes\\frame_1950.jpg"
+  },
+  {
+    "start": 1957.0,
+    "end": 1967.0,
+    "text": "So how do we prove this result? In fact, we use a known reduction from a problem known as grid tiling, which is a W1 hard problem. And grid tiling is reduced to the independent set problem on",
+    "image_path": "../data/keyframes\\frame_1960.jpg"
+  },
+  {
+    "start": 1972.28,
+    "end": 1982.28,
+    "text": "C4 up to CP free graphs. And that reduction was used to show that independent set remains W1 hard if you exclude C4 up to CP for any constant P. But what is interesting and useful in that",
+    "image_path": "../data/keyframes\\frame_1975.jpg"
+  },
+  {
+    "start": 1989.4,
+    "end": 1999.4,
+    "text": "reduction is the graph that is obtained from the reduction. So the graph that is obtained from the reduction has three properties that are going to be useful to us. The first property is that",
+    "image_path": "../data/keyframes\\frame_1995.jpg"
+  },
+  {
+    "start": 2002.68,
+    "end": 2012.68,
+    "text": "you can partition the graph into basically 8k squared into P plus 1 clicks. So you have a bunch of clicks each of size n and all of the edges basically are between the clicks.",
+    "image_path": "../data/keyframes\\frame_2010.jpg"
+  },
+  {
+    "start": 2019.0,
+    "end": 2029.0,
+    "text": "But that's it, that's it, that's the whole of the graph. It's a bunch of clicks and edges between them. Of course, the more important property as well here is that this graph is going to be C4 up to CP free.",
+    "image_path": "../data/keyframes\\frame_2025.jpg"
+  },
+  {
+    "start": 2032.92,
+    "end": 2042.92,
+    "text": "It will not have any of those cycles as an induced sub graph. And it's an equivalent instance to",
+    "image_path": "../data/keyframes\\frame_2040.jpg"
+  },
+  {
+    "start": 2043.08,
+    "end": 2053.08,
+    "text": "the grid tiling. And that basically gives you a W1 hardness of independent set on this class of graphs.",
+    "image_path": "../data/keyframes\\frame_2050.jpg"
+  },
+  {
+    "start": 2053.4,
+    "end": 2063.4,
+    "text": "So notice in this case that an independent set of size 8k squared into P plus 1 will have to be a maximum independent set because that's how many clicks we get in the resulting graph.",
+    "image_path": "../data/keyframes\\frame_2060.jpg"
+  },
+  {
+    "start": 2064.52,
+    "end": 2074.52,
+    "text": "And that's basically the sizes that we will be working with, more or less up to some modifications. But this will allow us to basically conclude that both sliding and jumping are hard on this class of",
+    "image_path": "../data/keyframes\\frame_2070.jpg"
+  },
+  {
+    "start": 2078.12,
+    "end": 2088.12,
+    "text": "graphs. So how do we use this for showing hardness of token sliding and token jumping? And let's",
+    "image_path": "../data/keyframes\\frame_2085.jpg"
+  },
+  {
+    "start": 2088.52,
+    "end": 2098.52,
+    "text": "focus on token sliding for now because it's going to be the same anyway. So we have those clicks and some edges that go between the clicks. So the first attempt would be as follows. We will add",
+    "image_path": "../data/keyframes\\frame_2095.jpg"
+  },
+  {
+    "start": 2102.84,
+    "end": 2112.84,
+    "text": "a universal vertex to each one of the clicks and we will call this the starting set or the starting independent set. And then we add another universal vertex to each one of the clicks and call this",
+    "image_path": "../data/keyframes\\frame_2110.jpg"
+  },
+  {
+    "start": 2114.6,
+    "end": 2124.6,
+    "text": "the target independent set. And now basically we have our instance of token sliding. We want to slide everybody in S down to T. So notice that this is useful because we don't introduce any of the",
+    "image_path": "../data/keyframes\\frame_2120.jpg"
+  },
+  {
+    "start": 2130.2,
+    "end": 2140.2,
+    "text": "forbidden cycles. So we are still fine. And if we could guarantee that all of the tokens will be on the on the clicks simultaneously, then this will imply an independent set in the original graph",
+    "image_path": "../data/keyframes\\frame_2135.jpg"
+  },
+  {
+    "start": 2146.2,
+    "end": 2156.2,
+    "text": "which concludes our proof. But unfortunately in this case, we definitely cannot conclude that because each rent token can slide independently here and then here and then the next one can",
+    "image_path": "../data/keyframes\\frame_2150.jpg"
+  },
+  {
+    "start": 2159.32,
+    "end": 2169.32,
+    "text": "follow, etc, etc, etc. So you need some way of forbidden for bidding these tokens to behave freely. We want to make sure that they will all be inside the clicks simultaneously and we will",
+    "image_path": "../data/keyframes\\frame_2165.jpg"
+  },
+  {
+    "start": 2175.0,
+    "end": 2185.0,
+    "text": "be done. And notice that we're going to have 8k squared and 2p plus 1 tokens, right? 1 for each click and 2 universal vertices for each click. So how do we fix this time of 1080 to issue? Well,",
+    "image_path": "../data/keyframes\\frame_2180.jpg"
+  },
+  {
+    "start": 2190.04,
+    "end": 2200.04,
+    "text": "here's how we can do it. So instead of simply adding universal vertices, we're also going to add an edge between every two universal vertices on a click and then we're going to add something that",
+    "image_path": "../data/keyframes\\frame_2195.jpg"
+  },
+  {
+    "start": 2203.48,
+    "end": 2213.48,
+    "text": "we call a switch. And in this case, it's a simple edge and the red token here needs to go to the blue position, right? So now we have one extra token inside our graph. But now notice what happens. If",
+    "image_path": "../data/keyframes\\frame_2210.jpg"
+  },
+  {
+    "start": 2220.52,
+    "end": 2230.52,
+    "text": "any red token wants to come to the blue position, then this red token needs to be moved to this position before. And if you move that token up to the blue position, then you can no longer have",
+    "image_path": "../data/keyframes\\frame_2225.jpg"
+  },
+  {
+    "start": 2236.28,
+    "end": 2246.28,
+    "text": "any of the red tokens on the universal vertices, which means that they will all have to be simultaneously inside the clicks. And now we get the behavior that we want. So now we can guarantee that if there",
+    "image_path": "../data/keyframes\\frame_2240.jpg"
+  },
+  {
+    "start": 2251.32,
+    "end": 2261.32,
+    "text": "is a sequence that takes the red tokens to the blue position, then somewhere along that sequence, the tokens are all going to be within the clicks. Unfortunately, what happened here is we might",
+    "image_path": "../data/keyframes\\frame_2255.jpg"
+  },
+  {
+    "start": 2264.76,
+    "end": 2274.76,
+    "text": "have introduced some of the forbidden cycles. We can no longer guarantee that this is c4 up to cp3. So what you can do in this case to solve this problem, and I'm not going to go into the details,",
+    "image_path": "../data/keyframes\\frame_2270.jpg"
+  },
+  {
+    "start": 2279.4,
+    "end": 2289.4,
+    "text": "but the intuition should be pretty clear, is that you can subdivide those edges, make them long enough so that you don't introduce any forbidden cycles and add appropriate tokens inside of them to",
+    "image_path": "../data/keyframes\\frame_2285.jpg"
+  },
+  {
+    "start": 2292.04,
+    "end": 2302.04,
+    "text": "get the same behavior. Because notice that the number of such edges is bounded by a function of k, by a function of yes, k and p. So you can make these edges subdivide them as many times as needed,",
+    "image_path": "../data/keyframes\\frame_2295.jpg"
+  },
+  {
+    "start": 2311.24,
+    "end": 2321.24,
+    "text": "add as many tokens as needed to maintain all the properties that we need and to maintain that we're going from one maximum independent set to the other, which will give you W1 hardness for both",
+    "image_path": "../data/keyframes\\frame_2315.jpg"
+  },
+  {
+    "start": 2323.56,
+    "end": 2333.56,
+    "text": "token sliding as well as token jumping. All right, questions?",
+    "image_path": "../data/keyframes\\frame_2330.jpg"
+  },
+  {
+    "start": 2335.4,
+    "end": 2345.4,
+    "text": "No questions? All right, so let's keep going. So now I'm going to talk about some positive result.",
+    "image_path": "../data/keyframes\\frame_2340.jpg"
+  },
+  {
+    "start": 2358.04,
+    "end": 2368.04,
+    "text": "So the result that I'm going to talk about is this one here. All right, so I'm going to show you that on c3c4 free rafts, token jumping is actually",
+    "image_path": "../data/keyframes\\frame_2365.jpg"
+  },
+  {
+    "start": 2371.96,
+    "end": 2381.96,
+    "text": "fpt and has a quadratic kernel, but again, what we will show is a stronger result. So what we will show is the following theorem. What we will show is can be summarized as follows.",
+    "image_path": "../data/keyframes\\frame_2375.jpg"
+  },
+  {
+    "start": 2388.92,
+    "end": 2398.92,
+    "text": "So if you look at any graph or at any instance of the token jumping problem. So remember, an instance of token jumping has the input graph, the starting set, the target set, and k as the number of tokens.",
+    "image_path": "../data/keyframes\\frame_2395.jpg"
+  },
+  {
+    "start": 2403.56,
+    "end": 2413.56,
+    "text": "So let me try and draw something here. So if you look at your graph, you can kind of decompose it",
+    "image_path": "../data/keyframes\\frame_2410.jpg"
+  },
+  {
+    "start": 2413.64,
+    "end": 2423.64,
+    "text": "into something which is more or less as follows. So you have s, you have t, the intersection need not be empty. And then you have the neighborhood of s union t. And then you have the rest of the graph.",
+    "image_path": "../data/keyframes\\frame_2420.jpg"
+  },
+  {
+    "start": 2433.16,
+    "end": 2443.16,
+    "text": "So we're going to call the rest of the graph h. And we're going to call the close neighborhood of s union t, or if you will, this yellow part here, we call that j. So we can think of our problem",
+    "image_path": "../data/keyframes\\frame_2440.jpg"
+  },
+  {
+    "start": 2449.24,
+    "end": 2459.24,
+    "text": "of our graph as being decomposed into those two areas, h and j. Okay, so the theorem states the following. If h is epsilon sparse, where epsilon sparse",
+    "image_path": "../data/keyframes\\frame_2455.jpg"
+  },
+  {
+    "start": 2464.2,
+    "end": 2474.2,
+    "text": "means that the number of edges is at most n squared minus epsilon positive epsilon. So if h is epsilon sparse and j is c3 c4 free, then the problem admits a kernel, which is that big,",
+    "image_path": "../data/keyframes\\frame_2470.jpg"
+  },
+  {
+    "start": 2481.32,
+    "end": 2491.32,
+    "text": "k squared plus k into 1 plus 1 over epsilon. So notice now that we only need that h is epsilon sparse.",
+    "image_path": "../data/keyframes\\frame_2485.jpg"
+  },
+  {
+    "start": 2491.72,
+    "end": 2501.72,
+    "text": "And we only require c3 c4 freeness inside j, which is s union t close neighborhood. Close neighborhood of s union t. And this idea is actually is not a new idea. So this idea is",
+    "image_path": "../data/keyframes\\frame_2495.jpg"
+  },
+  {
+    "start": 2511.56,
+    "end": 2521.56,
+    "text": "okay, I had the drawing here. I should have used it. So the idea comes from has been used before. And it's what we call the buffer technique for the token jumping problem. And then the",
+    "image_path": "../data/keyframes\\frame_2515.jpg"
+  },
+  {
+    "start": 2523.16,
+    "end": 2533.16,
+    "text": "solution behind the buffer technique is very simple. So if I have s union t, but somewhere in the graph, which is not in the close neighborhood of s union t, I have a case sized independent set,",
+    "image_path": "../data/keyframes\\frame_2530.jpg"
+  },
+  {
+    "start": 2536.36,
+    "end": 2546.36,
+    "text": "then you are done. Right? If I have a case sized independent set in h, then you're done. You can basically take all the tokens on s, jump them into those independent yellow vertices in h,",
+    "image_path": "../data/keyframes\\frame_2540.jpg"
+  },
+  {
+    "start": 2551.4,
+    "end": 2561.4,
+    "text": "and then jump them back to t. So in some sense, when h has a large independent set, that's the easy case. Right? You're done. If you can find the large enough independent set in h, you're done.",
+    "image_path": "../data/keyframes\\frame_2555.jpg"
+  },
+  {
+    "start": 2566.2,
+    "end": 2576.2,
+    "text": "And that's what we call the buffer technique, because it's been also used to show that the problem is Fpt on planar graphs, for example, or k3 j free graphs. So graphs without large bi-clips.",
+    "image_path": "../data/keyframes\\frame_2570.jpg"
+  },
+  {
+    "start": 2578.84,
+    "end": 2588.84,
+    "text": "So it's a well-known technique. All right. So what do we show? So we're going to use the buffer technique,",
+    "image_path": "../data/keyframes\\frame_2585.jpg"
+  },
+  {
+    "start": 2592.76,
+    "end": 2602.76,
+    "text": "and we're going to combine it with something else. So we show that you have a yes instance whenever one of those two conditions is true. The first condition is that h is epsilon sparse and",
+    "image_path": "../data/keyframes\\frame_2600.jpg"
+  },
+  {
+    "start": 2609.8,
+    "end": 2619.8,
+    "text": "contains more than this many vertices. And this is relatively easy. When you contain this many vertices and you are epsilon sparse, then you will have a case size independent set. And that's",
+    "image_path": "../data/keyframes\\frame_2615.jpg"
+  },
+  {
+    "start": 2624.12,
+    "end": 2634.12,
+    "text": "basically the buffer technique. When h is epsilon sparse and has that many vertices or more, then h is guaranteed to have an independent set of size k and you're done.",
+    "image_path": "../data/keyframes\\frame_2630.jpg"
+  },
+  {
+    "start": 2635.56,
+    "end": 2645.56,
+    "text": "So now you are stuck with what happens inside j or the closed neighborhood of s-union t. And it turns out there, if you have c3c for freeness, the only thing you need on top of that",
+    "image_path": "../data/keyframes\\frame_2640.jpg"
+  },
+  {
+    "start": 2649.96,
+    "end": 2659.96,
+    "text": "to guarantee a yes instance is a vertex of degree at least 3k. So if you have c3c for freeness inside j and the vertex of degree 3k, then again you get a yes instance.",
+    "image_path": "../data/keyframes\\frame_2655.jpg"
+  },
+  {
+    "start": 2665.64,
+    "end": 2675.64,
+    "text": "So let me prove those two statements separately because they will be basically what we need for the final theorem. So the first lemma as I told you, if h is epsilon sparse and has more than",
+    "image_path": "../data/keyframes\\frame_2670.jpg"
+  },
+  {
+    "start": 2685.24,
+    "end": 2695.24,
+    "text": "this many vertices, then it's a yes instance because you have a case size independent set in h. The idea of this proof is simple. It's a counting argument. And what you need to do basically",
+    "image_path": "../data/keyframes\\frame_2690.jpg"
+  },
+  {
+    "start": 2697.88,
+    "end": 2707.88,
+    "text": "first is to show that h must contain a vertex of degree less than and over k. And then basically you apply the standard greedy packing algorithm for constructing an independent set",
+    "image_path": "../data/keyframes\\frame_2705.jpg"
+  },
+  {
+    "start": 2709.32,
+    "end": 2719.32,
+    "text": "of size k. And the reason you show that the way you show that h has a vertex of degree less than and over k is again standard counting argument and the handshaking lemma. So if the minimum degree",
+    "image_path": "../data/keyframes\\frame_2715.jpg"
+  },
+  {
+    "start": 2723.16,
+    "end": 2733.16,
+    "text": "in h was at least n over k, then the number of edges would be at least n squared over 2k, which will only happen in an epsilon sparse graph when n is less than or equal 2k to the power 1 over s.",
+    "image_path": "../data/keyframes\\frame_2730.jpg"
+  },
+  {
+    "start": 2739.8,
+    "end": 2749.8,
+    "text": "And the rest of the proof is basically an induction on k. Okay, and so that shows you that when you do have an epsilon sparse graph with more than",
+    "image_path": "../data/keyframes\\frame_2745.jpg"
+  },
+  {
+    "start": 2750.84,
+    "end": 2760.84,
+    "text": "this many vertices, then we have a yes instance. All right, so how about the second part of the claim? So now what happens if we have a c3 c4 free j that has a vertex of degree 3k?",
+    "image_path": "../data/keyframes\\frame_2755.jpg"
+  },
+  {
+    "start": 2767.0,
+    "end": 2777.0,
+    "text": "Well, let's see what happens. So if we have a vertex of degree 3k and I'm going to circle it here in yellow. So how can the neighborhood of that vertex look? Well, we know that",
+    "image_path": "../data/keyframes\\frame_2770.jpg"
+  },
+  {
+    "start": 2779.56,
+    "end": 2789.56,
+    "text": "j is c3 free. So the blue edges cannot exist, which means that the neighborhood of the yellow vertex is an independent set inside j, not in the whole graph. Well, in fact, in the whole well known",
+    "image_path": "../data/keyframes\\frame_2785.jpg"
+  },
+  {
+    "start": 2794.92,
+    "end": 2804.92,
+    "text": "because we're only talking about j as a sub graph. Right, so the blue edges cannot exist, because otherwise we will get a c3 inside j. All right, so now let's look at the other vertices",
+    "image_path": "../data/keyframes\\frame_2800.jpg"
+  },
+  {
+    "start": 2813.72,
+    "end": 2823.72,
+    "text": "in s union t. The other, the second observation that you need is that any vertex other than the yellow vertex can have at most one neighbor in common with the yellow vertex. Because if you do have two",
+    "image_path": "../data/keyframes\\frame_2820.jpg"
+  },
+  {
+    "start": 2828.84,
+    "end": 2838.84,
+    "text": "neighbors in common, then you will get a c4. So now what happens if we have three k vertices",
+    "image_path": "../data/keyframes\\frame_2835.jpg"
+  },
+  {
+    "start": 2839.48,
+    "end": 2849.48,
+    "text": "in the neighborhood of the yellow vertex? Well, at most two k of them can be connected to some vertex in s union t, and you will get at least k of them, some k of them here",
+    "image_path": "../data/keyframes\\frame_2845.jpg"
+  },
+  {
+    "start": 2852.76,
+    "end": 2862.76,
+    "text": "that are only connected to the yellow vertex. And so now basically instead of using a buffer inside h, we have just found a buffer inside j, and we can use the same strategy. We can jump all the tokens",
+    "image_path": "../data/keyframes\\frame_2860.jpg"
+  },
+  {
+    "start": 2870.44,
+    "end": 2880.44,
+    "text": "here, starting of course by the yellow token, and then jump them to where they need to go.",
+    "image_path": "../data/keyframes\\frame_2875.jpg"
+  },
+  {
+    "start": 2883.24,
+    "end": 2893.24,
+    "text": "So now combining those two observations together, if you will, we get the following theorem. So if",
+    "image_path": "../data/keyframes\\frame_2890.jpg"
+  },
+  {
+    "start": 2894.04,
+    "end": 2904.04,
+    "text": "h is alpha sparse, and j is c3c4 free, then the problem admits a kernel on this maneuver to c's, and it's basically a simple application of the previous two lemas. If we have more than this",
+    "image_path": "../data/keyframes\\frame_2900.jpg"
+  },
+  {
+    "start": 2907.4,
+    "end": 2917.4,
+    "text": "maneuver to c's in h, it's a trivial yes instance. If j has a vertex of degree 3k or more it's a trivial yes instance, and now you combine all of this together, we know that s union t is",
+    "image_path": "../data/keyframes\\frame_2910.jpg"
+  },
+  {
+    "start": 2919.88,
+    "end": 2929.88,
+    "text": "of size at most 2k. We know that the neighborhood of s union t is of size at most 2k times 3k, which is roughly 6k squared. And now we know that the rest of the graph has at most that maneuver to",
+    "image_path": "../data/keyframes\\frame_2925.jpg"
+  },
+  {
+    "start": 2933.0,
+    "end": 2943.0,
+    "text": "c's. So basically use some of those numbers, and you get this bound.",
+    "image_path": "../data/keyframes\\frame_2940.jpg"
+  },
+  {
+    "start": 2946.44,
+    "end": 2956.44,
+    "text": "All right, so how does this theorem imply the result that I promised you to start with? So that token jumping and token sliding admit a kernel with order k squared vertices,",
+    "image_path": "../data/keyframes\\frame_2950.jpg"
+  },
+  {
+    "start": 2963.4,
+    "end": 2973.4,
+    "text": "I mean, I mean, it also holds for bipartite c4 free graphs, right? Obviously because they are c3c4 free. So how do you get the kernel? Well, we know that j cannot contain more than 6k squared minus 2k",
+    "image_path": "../data/keyframes\\frame_2970.jpg"
+  },
+  {
+    "start": 2978.12,
+    "end": 2988.12,
+    "text": "vertices, and we know from another theorem from another paper that c3 free graphs with k squared",
+    "image_path": "../data/keyframes\\frame_2985.jpg"
+  },
+  {
+    "start": 2988.68,
+    "end": 2998.68,
+    "text": "over log k vertices must have an independent set of size at least k. And now we know that if h contains more than this many vertices, then we will get a yes instance as well.",
+    "image_path": "../data/keyframes\\frame_2995.jpg"
+  },
+  {
+    "start": 3000.92,
+    "end": 3010.92,
+    "text": "Right, so it becomes an immediate consequence of the previous theorem, but the previous theorem is even more general than this corollary. So this corollary does not really use the full power of this",
+    "image_path": "../data/keyframes\\frame_3005.jpg"
+  },
+  {
+    "start": 3012.44,
+    "end": 3022.44,
+    "text": "theorem. All right, that's it. I think I'm fine. If you have questions, I will take them now.",
+    "image_path": "../data/keyframes\\frame_3015.jpg"
+  },
+  {
+    "start": 3029.88,
+    "end": 3039.88,
+    "text": "So it was 55 minutes, right, for the talk. I did not go under the talk. It's fine. We usually allow plus minus 10 minutes. That's all right.",
+    "image_path": "../data/keyframes\\frame_3035.jpg"
+  },
+  {
+    "start": 3042.44,
+    "end": 3052.44,
+    "text": "So I have a question about token sliding. Yes. So how crucial, what happens if one does not restrict the independent sets during the configuration to be not of the same size,",
+    "image_path": "../data/keyframes\\frame_3045.jpg"
+  },
+  {
+    "start": 3057.88,
+    "end": 3067.88,
+    "text": "is that is that very critical for the difficulty or the easiness of the problem? Well, you have to be careful how you define that because in token sliding,",
+    "image_path": "../data/keyframes\\frame_3065.jpg"
+  },
+  {
+    "start": 3069.56,
+    "end": 3079.56,
+    "text": "tokens cannot leave the graph. That's correct, but the independent set sequence, all the independent sets have to be the same size, right? If not some token disappeared at some point, and I'm not sure how it disappeared.",
+    "image_path": "../data/keyframes\\frame_3075.jpg"
+  },
+  {
+    "start": 3086.44,
+    "end": 3096.44,
+    "text": "Right, because you start with something of size k, and you're going to something of size k, you cannot leave the graph unless you define it in some way. So you will remain of size k throughout.",
+    "image_path": "../data/keyframes\\frame_3090.jpg"
+  },
+  {
+    "start": 3101.16,
+    "end": 3111.16,
+    "text": "But you can become slightly larger in k. But where does the new token come from? So there is a third rule that I did not tell you about, which is called token addition and removal.",
+    "image_path": "../data/keyframes\\frame_3105.jpg"
+  },
+  {
+    "start": 3116.04,
+    "end": 3126.04,
+    "text": "Under that rule, we actually allow you to remove vertices and adversities as long as you remain an independent set of size at least k. Does that answer your question?",
+    "image_path": "../data/keyframes\\frame_3120.jpg"
+  },
+  {
+    "start": 3132.2,
+    "end": 3142.2,
+    "text": "Yeah, yeah, yeah, yeah. But in fact, it was shown that it was shown that so addition and removal is equivalent to token jumping.",
+    "image_path": "../data/keyframes\\frame_3135.jpg"
+  },
+  {
+    "start": 3145.96,
+    "end": 3155.96,
+    "text": "But it doesn't, it never makes sense to add more tokens to your graph if you don't need them. You're only making your life harder into it if he's speaking.",
+    "image_path": "../data/keyframes\\frame_3150.jpg"
+  },
+  {
+    "start": 3161.08,
+    "end": 3171.08,
+    "text": "So the other question that I had is, I mean, I heard, I, I, so is it possible to view this whole problem on an exponential size graph where every vertex",
+    "image_path": "../data/keyframes\\frame_3165.jpg"
+  },
+  {
+    "start": 3175.32,
+    "end": 3185.32,
+    "text": "corresponds to an independent set in the original graph. And then you have edges between two vertices, if there is an edge between two vertices of the independent set. And now you are doing a",
+    "image_path": "../data/keyframes\\frame_3180.jpg"
+  },
+  {
+    "start": 3188.92,
+    "end": 3198.92,
+    "text": "reachability question. Is that a meaningful way to think about this? But that's exactly what we're doing. But, but so the way you define your adjacency, I think,",
+    "image_path": "../data/keyframes\\frame_3195.jpg"
+  },
+  {
+    "start": 3199.96,
+    "end": 3209.96,
+    "text": "so you mean you define, you make two independent sets adjacent if one can be reached from the other via a single slide or a single joint. Exactly. Yeah, one edge here. There is one pair, you and B,",
+    "image_path": "../data/keyframes\\frame_3205.jpg"
+  },
+  {
+    "start": 3210.52,
+    "end": 3220.52,
+    "text": "which is adjacent. But that's, but that's exactly what we're doing. Okay, okay. Yeah. Right? I mean, if you, because we're looking at algorithms here,",
+    "image_path": "../data/keyframes\\frame_3215.jpg"
+  },
+  {
+    "start": 3220.76,
+    "end": 3230.76,
+    "text": "we kind of forget the structural picture behind it. But this algorithm is finding a path in this graph that you're describing. Yeah, yeah, that's it. And what we're saying is you can do it in FBT time",
+    "image_path": "../data/keyframes\\frame_3225.jpg"
+  },
+  {
+    "start": 3233.4,
+    "end": 3243.4,
+    "text": "or not, depending on the problem we're talking about.",
+    "image_path": "../data/keyframes\\frame_3240.jpg"
+  },
+  {
+    "start": 3245.4,
+    "end": 3255.4,
+    "text": "Hi, Amir. Hi. Hi. Hi. Hi. Hi. Hi. Hi. Hi. Hi. Yeah, I'm good. So I had a question. So, do problems remain equally hard if we bound the,",
+    "image_path": "../data/keyframes\\frame_3250.jpg"
+  },
+  {
+    "start": 3258.44,
+    "end": 3268.44,
+    "text": "if we have a restriction on the number of times, we can move the token to a particular vertex. The number of times you can move a token to a particular vertex.",
+    "image_path": "../data/keyframes\\frame_3265.jpg"
+  },
+  {
+    "start": 3272.44,
+    "end": 3282.44,
+    "text": "I like it. There are a lot of times the tokens can be moved to a vertex. Well, that's definitely going to change the complexity in, in, at least intuitively speaking,",
+    "image_path": "../data/keyframes\\frame_3275.jpg"
+  },
+  {
+    "start": 3284.52,
+    "end": 3294.52,
+    "text": "right? Because now you're saying maybe it will, if you're bounding that by a constant, then you might be saying that I'm not allowing exponentially large sequences anymore.",
+    "image_path": "../data/keyframes\\frame_3290.jpg"
+  },
+  {
+    "start": 3295.48,
+    "end": 3305.48,
+    "text": "But in terms of exactly how the complexity changes, I don't have answers. I think it's a very nice question to pose. Even in terms of a non-parameterized complexity, standard complexity, I think",
+    "image_path": "../data/keyframes\\frame_3300.jpg"
+  },
+  {
+    "start": 3309.8,
+    "end": 3319.8,
+    "text": "that that would be a very interesting question because it will definitely affect the behavior. I'm not sure exactly how yet. I don't know of any results that ask this particular question.",
+    "image_path": "../data/keyframes\\frame_3315.jpg"
+  },
+  {
+    "start": 3323.88,
+    "end": 3333.88,
+    "text": "Okay. So I had one more question in the W hardness result that you presented. So, do you know what is the length of the, the length of the changes, actually the number of changes",
+    "image_path": "../data/keyframes\\frame_3330.jpg"
+  },
+  {
+    "start": 3338.12,
+    "end": 3348.12,
+    "text": "or flips that you make in your independence? This is just, yes, yes, yes, we do. So here the number of changes is going to be where it's basically going to be the shortest possible sequence.",
+    "image_path": "../data/keyframes\\frame_3345.jpg"
+  },
+  {
+    "start": 3352.04,
+    "end": 3362.04,
+    "text": "So it's going to, it's, it's, it's basically going to be, so if you think about the simple construction, this one, it's basically literally going to be these guys are going to move here.",
+    "image_path": "../data/keyframes\\frame_3355.jpg"
+  },
+  {
+    "start": 3367.96,
+    "end": 3377.96,
+    "text": "So each is going to cost me one slide and then they're all going to, and now this guy is going to move here and now I will pay one slide for each one here. Now this is the simplified version of",
+    "image_path": "../data/keyframes\\frame_3375.jpg"
+  },
+  {
+    "start": 3381.08,
+    "end": 3391.08,
+    "text": "it. Once you go to the complete version of it, you have some extra slides within the path, but you can also count those. Okay. So, but does this mean that, so does this mean that at a",
+    "image_path": "../data/keyframes\\frame_3385.jpg"
+  },
+  {
+    "start": 3395.88,
+    "end": 3405.88,
+    "text": "particular vertex, we're placing the token at most once? In this case, yes. Okay. In this case, yes. Okay. So this problem should be hard even if we bound the number of times tokens can be moved",
+    "image_path": "../data/keyframes\\frame_3400.jpg"
+  },
+  {
+    "start": 3411.8,
+    "end": 3421.8,
+    "text": "to a vertex, right? Yes. Okay. Yes. So here in this case, yes. Absolutely. Okay. Thanks.",
+    "image_path": "../data/keyframes\\frame_3415.jpg"
+  },
+  {
+    "start": 3424.44,
+    "end": 3434.44,
+    "text": "So, Akansha, I have a remark about your question. So if a vertex, if a vertex cannot get a token twice, then it somehow seems to be selecting disjoint independent sets,",
+    "image_path": "../data/keyframes\\frame_3430.jpg"
+  },
+  {
+    "start": 3440.84,
+    "end": 3450.84,
+    "text": "a sequence of them and that may have some bearing on coloring. Just a top level. So actually for the list, the W hardness case that I'm going to present it, it is exactly the",
+    "image_path": "../data/keyframes\\frame_3445.jpg"
+  },
+  {
+    "start": 3455.72,
+    "end": 3465.72,
+    "text": "case, right? So we are not allowed to move the token like twice on the same vertex. Yeah. So I didn't get your point of being, so getting this disjoint independence, it's actually",
+    "image_path": "../data/keyframes\\frame_3460.jpg"
+  },
+  {
+    "start": 3470.2,
+    "end": 3480.2,
+    "text": "because if you say, if you think of it from my, the way I thought about it, right, that you're actually trying to find a path in a large graph where every vertex corresponds to an independent",
+    "image_path": "../data/keyframes\\frame_3475.jpg"
+  },
+  {
+    "start": 3480.68,
+    "end": 3490.68,
+    "text": "set and you move from one independent set to another. So we can only move from one independent set to the other if the change is like in case of tokens sliding, it's one probably. Yeah.",
+    "image_path": "../data/keyframes\\frame_3485.jpg"
+  },
+  {
+    "start": 3502.2,
+    "end": 3512.2,
+    "text": "So it looks to be that you're asking for a collection of independent sets which are vertex disjoint. If the token sequence of independent sets which are vertex disjoint.",
+    "image_path": "../data/keyframes\\frame_3505.jpg"
+  },
+  {
+    "start": 3514.92,
+    "end": 3524.92,
+    "text": "Yeah. So if I may, I think I think, yeah, a conscious question would be more relevant in a place where we don't have a monotone sequence, meaning a sequence. So we need a version of the problem",
+    "image_path": "../data/keyframes\\frame_3520.jpg"
+  },
+  {
+    "start": 3527.64,
+    "end": 3537.64,
+    "text": "or some cases of the problem where a vertex has to be visited multiple times to find solutions and that is known to be the case for some versions or some statements of the",
+    "image_path": "../data/keyframes\\frame_3535.jpg"
+  },
+  {
+    "start": 3539.08,
+    "end": 3549.08,
+    "text": "problem. And in fact, the conscious also, this was the crucial difference between piece-based completeness and NP completeness of sliding versus jumping in bipartite graphs. So it was because",
+    "image_path": "../data/keyframes\\frame_3545.jpg"
+  },
+  {
+    "start": 3552.12,
+    "end": 3562.12,
+    "text": "we were able to show that no vertex will be visited more than once. Okay. And the other problem. So so that's why it's definitely an interesting question to pose, but you have to be careful in what",
+    "image_path": "../data/keyframes\\frame_3555.jpg"
+  },
+  {
+    "start": 3563.96,
+    "end": 3573.96,
+    "text": "context you pose it. Great. I don't know if that kind of settles, answers your question.",
+    "image_path": "../data/keyframes\\frame_3570.jpg"
+  },
+  {
+    "start": 3574.52,
+    "end": 3584.52,
+    "text": "Yes, yes, it does. All right. Thanks. You're welcome.",
+    "image_path": "../data/keyframes\\frame_3580.jpg"
+  },
+  {
+    "start": 3587.0,
+    "end": 3597.0,
+    "text": "Any more questions? Yes. I guess not.",
+    "image_path": "../data/keyframes\\frame_3590.jpg"
+  },
+  {
+    "start": 3620.46,
+    "end": 3630.46,
+    "text": "I don't think that I'm going to go show. So I will just once again announce the parameterized and go to them 301 workshop, which is going to happen in December in the link has been posted once again in the chat.",
+    "image_path": "../data/keyframes\\frame_3625.jpg"
+  },
+  {
+    "start": 3634.46,
+    "end": 3644.46,
+    "text": "Some advanced topics in parameterized complexity will be discussed. Those interested can have a look and register for it. And yeah, if there are some more questions, please ask away.",
+    "image_path": "../data/keyframes\\frame_3640.jpg"
+  },
+  {
+    "start": 3650.46,
+    "end": 3660.46,
+    "text": "So anyone can register for the school.",
+    "image_path": "../data/keyframes\\frame_3655.jpg"
+  },
+  {
+    "start": 3679.46,
+    "end": 3689.46,
+    "text": "Yes, he's anyone can. Yeah, it's free and it's online and yeah, it's open to everyone. So I can share with my students as well.",
+    "image_path": "../data/keyframes\\frame_3685.jpg"
+  },
+  {
+    "start": 3690.46,
+    "end": 3700.46,
+    "text": "Of course, of course, please do. Yeah, that will be good. And we are doing some basic understanding of parameterized algorithms. But we have already shared a link on the page where students can go and go through some previous lectures in parameterized algorithms.",
+    "image_path": "../data/keyframes\\frame_3695.jpg"
+  },
+  {
+    "start": 3706.46,
+    "end": 3716.46,
+    "text": "If they wish to just brace up or revise stuff.",
+    "image_path": "../data/keyframes\\frame_3710.jpg"
+  },
+  {
+    "start": 3717.46,
+    "end": 3727.46,
+    "text": "All right, so I guess, okay, I don't think there are any more questions. So I give this a good time to wrap up. So thank you once in a professional summit or for agreeing to give the talk.",
+    "image_path": "../data/keyframes\\frame_3720.jpg"
+  },
+  {
+    "start": 3731.46,
+    "end": 3741.46,
+    "text": "It was really nice to have you and just really good to have something different than what we usually hear in every parent race context, it took at least most of them.",
+    "image_path": "../data/keyframes\\frame_3735.jpg"
+  },
+  {
+    "start": 3741.46,
+    "end": 3751.46,
+    "text": "So and yeah, these are really interesting problems to think of one. And thank you to the audience for being with us. And that's it for today's wrap up. See you all next week.",
+    "image_path": "../data/keyframes\\frame_3745.jpg"
+  },
+  {
+    "start": 3752.46,
+    "end": 3762.46,
+    "text": "Thank you. Bye. Thank you. Bye.",
+    "image_path": "../data/keyframes\\frame_3755.jpg"
+  }
+]

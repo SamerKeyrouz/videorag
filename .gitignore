@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+venv/
+.env/
+__pycache__/
+*.pyc
+Lib/
+data/video.mp4
+data/audio.mp3
+ffmpeg.exe

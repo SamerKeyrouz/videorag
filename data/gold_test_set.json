@@ -1,0 +1,83 @@
+[
+  {
+    "question": "What is token jumping?",
+    "answerable": true,
+    "ground_truth_start": 2388.92,
+    "ground_truth_end": 2398.92
+  },
+  {
+    "question": "What is the 15 puzzle game?",
+    "answerable": true,
+    "ground_truth_start": 500.0,
+    "ground_truth_end": 510.0
+  },
+  {
+    "question": "What is the buffer technique in token jumping?",
+    "answerable": true,
+    "ground_truth_start": 2511.56,
+    "ground_truth_end": 2521.56
+  },
+  {
+    "question": "What happens when h is epsilon sparse and has many vertices?",
+    "answerable": true,
+    "ground_truth_start": 2624.0,
+    "ground_truth_end": 2634.0
+  },
+  {
+    "question": "What is the role of vertex degree in determining a yes-instance in j?",
+    "answerable": true,
+    "ground_truth_start": 2649.0,
+    "ground_truth_end": 2659.0
+  },
+  {
+    "question": "What is PSPACE in complexity theory?",
+    "answerable": true,
+    "ground_truth_start": 1076.52,
+    "ground_truth_end": 1086.52
+  },
+  {
+    "question": "When does recoloring become PSPACE-complete?",
+    "answerable": true,
+    "ground_truth_start": 1208.0,
+    "ground_truth_end": 1218.0
+  },
+  {
+    "question": "What is the starting point of the token sliding research?",
+    "answerable": true,
+    "ground_truth_start": 985.0,
+    "ground_truth_end": 995.0
+  },
+  {
+    "question": "What parameterizations are considered for token problems?",
+    "answerable": true,
+    "ground_truth_start": 1433.0,
+    "ground_truth_end": 1443.0
+  },
+  {
+    "question": "Is the complexity of token jumping on bipartite graphs resolved?",
+    "answerable": true,
+    "ground_truth_start": 1515.0,
+    "ground_truth_end": 1525.0
+  },
+  {
+    "question": "What was the year of publication for the token jumping paper?",
+    "answerable": false
+  },
+  {
+    "question": "What is the average runtime of the proposed algorithms?",
+    "answerable": false
+  },
+  {
+    "question": "What programming language was used to implement the results?",
+    "answerable": false
+  },
+  {
+    "question": "What is the speaker’s opinion on AI in algorithm design?",
+    "answerable": false
+  },
+  {
+    "question": "Who proposed the buffer technique originally?",
+    "answerable": false
+  }
+
+]

@@ -32,14 +32,16 @@ The demo is built around the talk:
 git clone 
 
 ```
+### 2. Obtain the video (Required for Full Pipeline)
+The demonstration video is excluded from the repository due to size constraints. To recreate the full pipeline, download the source video from youtube (https://www.youtube.com/watch?v=dARr3lGKwk8) and place it under data directory. 
 
-### 2. Create a virtual environment
+### 3. Create a virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate        # or venv\Scripts\activate on Windows
 ```
 
-### 3. Install dependencies
+### 4. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
@@ -82,7 +84,7 @@ Before running `load_to_pg.py`, make sure to update database credentials in the 
 ---
 
 ## Reproducibility
-### Option 1: Re-run Entire Pipeline
+### Option 1: Re-run Entire Pipeline (Requires local video under data directory)
 Use this to test with a **new video**:
 ```bash
 python transcribe_audio.py
@@ -131,8 +133,11 @@ Generates:
 ---
 
 ## Contact
-For any questions or improvements, feel free to comment
 
+For questions, suggestions, or improvements, feel free to reach out via:
+
+- Email: [ssk45@mail.aub.edu](mailto:ssk45@mail.aub.edu)  
+- Mobile: +961 76 529 820
 ---
 
 **Author:** Samer Keyrouz
